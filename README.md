@@ -1,7 +1,7 @@
 # README
 ```AL FATTAH
 * BISMILLAHIR RAHMANIR RAHIMI FIL AWWALINA WAL AKHIRINA ... ALHAMDOULILLAH
-END
+...
 ```
 
 This README would normally document whatever steps are necessary to get the
