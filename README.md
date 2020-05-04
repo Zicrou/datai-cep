@@ -1,5 +1,6 @@
 # README
-*BISMILLAHIR RAHMANIR RAHIMI FIL AWWALINA WAL AKHIRINA...ALHAMDOULILLAH
+* BISMILLAHIR RAHMANIR RAHIMI FIL AWWALINA WAL AKHIRINA...ALHAMDOULILLAH
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
