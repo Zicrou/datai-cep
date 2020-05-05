@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_184542) do
+ActiveRecord::Schema.define(version: 2020_05_05_193255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,35 @@ ActiveRecord::Schema.define(version: 2020_05_05_184542) do
     t.index ["region_id"], name: "index_departements_on_region_id"
   end
 
+  create_table "directions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.bigint "typeservice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["typeservice_id"], name: "index_services_on_typeservice_id"
+  end
+
+  create_table "typeservices", force: :cascade do |t|
+    t.string "name"
+    t.bigint "direction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["direction_id"], name: "index_typeservices_on_direction_id"
+  end
+
   add_foreign_key "departements", "regions"
+  add_foreign_key "services", "typeservices"
+  add_foreign_key "typeservices", "directions"
 end
