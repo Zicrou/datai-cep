@@ -7,6 +7,8 @@ class CreateAgents < ActiveRecord::Migration[5.2]
       t.enum :titre
       t.enum :sex
       t.date :date_de_naissance
+      t.date :date_en_cours
+      t.date :date_recrutement
       t.string :lieu_de_naissance
       t.string :nationalite
       t.int :code_femme_marie
