@@ -11,6 +11,8 @@ class CreateAgents < ActiveRecord::Migration[5.2]
       t.date :date_recrutement
       t.string :lieu_de_naissance
       t.string :nationalite
+      t.string :email
+      t.bigint :telephone
       t.int :code_femme_marie
       t.string :nom_du_mari
 
