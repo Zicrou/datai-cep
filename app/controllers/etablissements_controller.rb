@@ -69,6 +69,6 @@ class EtablissementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def etablissement_params
-      params.require(:etablissement).permit(:name, :region_id, :departement_id)
+      params.require(:etablissement).permit(:name, :code, :region_id, :departement_id)
     end
 end
