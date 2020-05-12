@@ -1,0 +1,2 @@
+class Echellon < ApplicationRecord
+end
