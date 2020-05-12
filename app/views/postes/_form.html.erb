@@ -1,0 +1,47 @@
+<%= form_with(model: poste, local: true) do |form| %>
+  <% if poste.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(poste.errors.count, "error") %> prohibited this poste from being saved:</h2>
+
+      <ul>
+      <% poste.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date_debut %>
+    <%= form.date_select :date_debut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_fin %>
+    <%= form.date_select :date_fin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nom_ecriture %>
+    <%= form.text_field :nom_ecriture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :capital %>
+    <%= form.text_field :capital %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cumul_retenu %>
+    <%= form.text_field :cumul_retenu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :montant %>
+    <%= form.text_field :montant %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
