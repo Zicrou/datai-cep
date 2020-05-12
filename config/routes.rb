@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :corps
   resources :classes
   resources :grades
   resources :mode_paiements
