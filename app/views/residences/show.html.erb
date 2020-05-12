@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code residence:</strong>
+  <%= @residence.code_residence %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @residence.name %>
+</p>
+
+<%= link_to 'Edit', edit_residence_path(@residence) %> |
+<%= link_to 'Back', residences_path %>
