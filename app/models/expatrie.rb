@@ -1,0 +1,2 @@
+class Expatrie < ApplicationRecord
+end
