@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :grades
   resources :mode_paiements
   resources :sous_service_etablsmts
   resources :service_etablsmts
