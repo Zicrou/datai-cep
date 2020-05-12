@@ -1,0 +1,2 @@
+class Preststion < ApplicationRecord
+end
