@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :agents
   resources :positions
   resources :postes
   resources :echellons

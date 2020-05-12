@@ -1,0 +1,67 @@
+<%= form_with(model: agent, local: true) do |form| %>
+  <% if agent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
+
+      <ul>
+      <% agent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :matricule %>
+    <%= form.text_field :matricule %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nom %>
+    <%= form.text_field :nom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prenom %>
+    <%= form.text_field :prenom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :titre %>
+    <%= form.text_field :titre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sex %>
+    <%= form.text_field :sex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_de_naissance %>
+    <%= form.date_select :date_de_naissance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lieu_de_naissance %>
+    <%= form.text_field :lieu_de_naissance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nationalite %>
+    <%= form.text_field :nationalite %>
+  </div>
+
+  <div class="field">
+    <%= form.label :code_femme_marie %>
+    <%= form.text_field :code_femme_marie %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nom_du_mari %>
+    <%= form.text_field :nom_du_mari %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
