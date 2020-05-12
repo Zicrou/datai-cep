@@ -1,0 +1,2 @@
+class ModePaiement < ApplicationRecord
+end
