@@ -1,0 +1,2 @@
+class ServiceEtablsmt < ApplicationRecord
+end

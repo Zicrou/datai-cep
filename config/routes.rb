@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sous_service_etablsmts
+  resources :service_etablsmts
   resources :etablissements
   resources :services
   resources :typeservices
