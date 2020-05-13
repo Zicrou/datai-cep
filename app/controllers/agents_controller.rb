@@ -69,6 +69,6 @@ class AgentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def agent_params
-      params.require(:agent).permit(:matricule, :nom, :prenom, :titre, :sex, :date_de_naissance, :lieu_de_naissance, :nationalite, :code_femme_marie, :nom_du_mari)
+      params.require(:agent).permit(:matricule, :nom, :prenom, :titre, :sex, :date_de_naissance, :lieu_de_naissance, :nationalite, :telephone, :email, :code_femme_marie, :nom_du_mari)
     end
 end
