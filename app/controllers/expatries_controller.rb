@@ -69,6 +69,6 @@ class ExpatriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def expatry_params
-      params.require(:expatrie).permit(:name)
+      params.require(:expatrie).permit(:code, :name)
     end
 end

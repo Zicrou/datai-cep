@@ -14,7 +14,7 @@
   <tbody>
     <% @expatries.each do |expatry| %>
       <tr>
-        <td><%#= expatry.code %></td>
+        <td><%= expatry.code %></td>
         <td><%= expatry.name %></td>
         <td><%= link_to 'Show', expatry %></td>
         <td><%= link_to 'Edit', edit_expatry_path(expatry) %></td>
