@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_193255) do
+ActiveRecord::Schema.define(version: 2020_05_12_191839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agents", force: :cascade do |t|
+    t.string "matricule"
+    t.string "nom"
+    t.string "prenom"
+    t.string "titre"
+    t.string "sex"
+    t.date "date_de_naissance"
+    t.date "date_en_cours"
+    t.date "date_recrutement"
+    t.string "lieu_de_naissance"
+    t.string "nationalite"
+    t.string "email"
+    t.bigint "telephone"
+    t.integer "code_femme_marie"
+    t.string "nom_du_mari"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "classes", force: :cascade do |t|
+    t.bigint "code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "corps", force: :cascade do |t|
+    t.bigint "code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "departements", force: :cascade do |t|
     t.string "name"
@@ -29,8 +62,95 @@ ActiveRecord::Schema.define(version: 2020_05_05_193255) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "echellons", force: :cascade do |t|
+    t.bigint "code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "emplois", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "etablissements", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "region_id"
+    t.bigint "departement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["departement_id"], name: "index_etablissements_on_departement_id"
+    t.index ["region_id"], name: "index_etablissements_on_region_id"
+  end
+
+  create_table "expatries", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.bigint "indice_grade"
+    t.bigint "code_grade"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mode_paiements", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.date "date_debut_position"
+    t.date "date_fin_position"
+    t.date "date_annulation_position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postes", force: :cascade do |t|
+    t.date "date_debut"
+    t.date "date_fin"
+    t.string "nom_ecriture"
+    t.bigint "capital"
+    t.bigint "cumul_retenu"
+    t.bigint "montant"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prestations", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "residences", force: :cascade do |t|
+    t.bigint "code_residence"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "service_etablsmts", force: :cascade do |t|
+    t.string "name"
+    t.string "etablissement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +163,14 @@ ActiveRecord::Schema.define(version: 2020_05_05_193255) do
     t.index ["typeservice_id"], name: "index_services_on_typeservice_id"
   end
 
+  create_table "sous_service_etablsmts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "service_etablsmt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_etablsmt_id"], name: "index_sous_service_etablsmts_on_service_etablsmt_id"
+  end
+
   create_table "typeservices", force: :cascade do |t|
     t.string "name"
     t.bigint "direction_id"
@@ -53,5 +181,6 @@ ActiveRecord::Schema.define(version: 2020_05_05_193255) do
 
   add_foreign_key "departements", "regions"
   add_foreign_key "services", "typeservices"
+  add_foreign_key "sous_service_etablsmts", "service_etablsmts"
   add_foreign_key "typeservices", "directions"
 end
