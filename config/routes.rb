@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :emplois
-  resources :preststions
+  #resources :preststions
+  resources :prestations
   resources :expatries
   resources :residences
   resources :agents
