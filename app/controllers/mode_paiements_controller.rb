@@ -1,5 +1,6 @@
 class ModePaiementsController < ApplicationController
   before_action :set_mode_paiement, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /mode_paiements
   # GET /mode_paiements.json

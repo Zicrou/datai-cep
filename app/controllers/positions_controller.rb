@@ -1,5 +1,6 @@
 class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /positions
   # GET /positions.json

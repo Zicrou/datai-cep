@@ -1,5 +1,6 @@
 class ServiceEtablsmtsController < ApplicationController
   before_action :set_service_etablsmt, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /service_etablsmts
   # GET /service_etablsmts.json

@@ -1,5 +1,6 @@
 class TypeservicesController < ApplicationController
   before_action :set_typeservice, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /typeservices
   # GET /typeservices.json

@@ -1,5 +1,6 @@
 class RegionsController < ApplicationController
   before_action :set_region, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /regions
   # GET /regions.json

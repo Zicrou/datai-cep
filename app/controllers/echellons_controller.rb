@@ -1,5 +1,6 @@
 class EchellonsController < ApplicationController
   before_action :set_echellon, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /echellons
   # GET /echellons.json

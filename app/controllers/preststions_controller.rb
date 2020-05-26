@@ -1,5 +1,6 @@
 class PreststionsController < ApplicationController
   before_action :set_preststion, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /preststions
   # GET /preststions.json

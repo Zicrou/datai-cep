@@ -1,5 +1,6 @@
 class PrestationsController < ApplicationController
   before_action :set_prestation, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /prestations
   # GET /prestations.json

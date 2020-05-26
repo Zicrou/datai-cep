@@ -1,5 +1,6 @@
 class EtablissementsController < ApplicationController
   before_action :set_etablissement, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /etablissements
   # GET /etablissements.json

@@ -1,5 +1,6 @@
 class ExpatriesController < ApplicationController
   before_action :set_expatry, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /expatries
   # GET /expatries.json

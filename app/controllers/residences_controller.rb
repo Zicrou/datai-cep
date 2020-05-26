@@ -1,5 +1,6 @@
 class ResidencesController < ApplicationController
   before_action :set_residence, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /residences
   # GET /residences.json

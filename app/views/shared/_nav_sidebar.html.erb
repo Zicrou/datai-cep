@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <%= link_to "Saisir un agent", '#', class: 'nav-link btn btn-light' %>
+        </li>
+        <li class="nav-item">
+          <span class="btn btn-light nav-link" 
+                  type="" 
+                  data-toggle="collapse" 
+                  data-target="#config" 
+                  aria-expanded="false" 
+                  aria-controller="config" >
+            Configurations
+          </span>
+
+        </li>
+
+        <div class="collapse" id="config">
+              <div style="background-color: white;" >
+                <%= link_to 'Emplois', emplois_path(), class: "nav-link btn"%>
+                <%= link_to 'prestations', prestations_path(), class: "nav-link btn"%>
+                <%= link_to 'expatries', expatries_path(), class: "nav-link btn"%>
+                <%= link_to 'residences', residences_path(), class: "nav-link btn"%>
+                <%= link_to 'agents', agents_path(), class: "nav-link btn"%>
+                <%= link_to 'positions', positions_path(), class: "nav-link btn"%>
+                <%= link_to 'postes', postes_path(), class: "nav-link btn"%>
+                <%= link_to 'echellons', echellons_path(), class: "nav-link btn"%>
+                <%= link_to 'corps', corps_path(), class: "nav-link btn"%>
+                <%= link_to 'classes', classes_path(), class: "nav-link btn"%>
+                <%= link_to 'grades', grades_path(), class: "nav-link btn"%>
+                <%= link_to 'mode de paiement', mode_paiements_path(), class: "nav-link btn"%>
+                <%= link_to 'sous service etablissement', sous_service_etablsmts_path(), class: "nav-link btn"%>
+                <%= link_to 'service etablissements', service_etablsmts_path(), class: "nav-link btn"%>
+                <%= link_to 'etablissements', etablissements_path(), class: "nav-link btn"%>
+                <%= link_to 'services', services_path(), class: "nav-link btn"%>
+                <%= link_to 'type services', typeservices_path(), class: "nav-link btn"%>
+                <%= link_to 'directions', directions_path(), class: "nav-link btn"%>
+                <%= link_to 'departements', departements_path(), class: "nav-link btn"%>
+                <%= link_to 'regions', regions_path(), class: "nav-link btn"%>
+              </div>
+          </div>
+
+        <!--li class="nav-item">
+          <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Reports</a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Analytics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Export</a>
+        </li>
+      </ul>
+
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Nav item</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Nav item again</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">One more nav</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Another nav item</a>
+        </li>
+      </ul>
+
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Nav item again</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">One more nav</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Another nav item</a>
+        </li>
+      </ul-->
+    </nav>

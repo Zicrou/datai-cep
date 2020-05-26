@@ -1,6 +1,7 @@
 class ClassesController < ApplicationController
   before_action :set_class, only: [:show, :edit, :update, :destroy]
-
+  layout 'configuration'
+  
   # GET /classes
   # GET /classes.json
   def index

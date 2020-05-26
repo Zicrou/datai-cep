@@ -1,5 +1,6 @@
 class PostesController < ApplicationController
   before_action :set_poste, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /postes
   # GET /postes.json

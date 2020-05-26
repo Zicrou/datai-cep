@@ -1,6 +1,6 @@
 class EmploisController < ApplicationController
   before_action :set_emploi, only: [:show, :edit, :update, :destroy]
-
+layout 'configuration'
   # GET /emplois
   # GET /emplois.json
   def index

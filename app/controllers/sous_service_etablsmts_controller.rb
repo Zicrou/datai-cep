@@ -1,5 +1,6 @@
 class SousServiceEtablsmtsController < ApplicationController
   before_action :set_sous_service_etablsmt, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /sous_service_etablsmts
   # GET /sous_service_etablsmts.json

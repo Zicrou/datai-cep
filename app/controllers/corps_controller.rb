@@ -1,5 +1,6 @@
 class CorpsController < ApplicationController
   before_action :set_corp, only: [:show, :edit, :update, :destroy]
+  layout 'configuration'
 
   # GET /corps
   # GET /corps.json
