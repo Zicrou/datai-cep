@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_183420) do
     t.string "nationalite"
     t.string "email"
     t.bigint "telephone"
-    t.integer "code_femme_marie"
+    t.bigint "code_femme_marie"
     t.string "nom_du_mari"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_183420) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "code"
+    t.bigint "code"
   end
 
   create_table "grades", force: :cascade do |t|
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_183420) do
   end
 
   create_table "positions", force: :cascade do |t|
-    t.integer "code"
+    t.bigint "code"
     t.string "name"
     t.date "date_debut_position"
     t.date "date_fin_position"
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_183420) do
   end
 
   create_table "prestations", force: :cascade do |t|
-    t.integer "code"
+    t.bigint "code"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -180,6 +180,8 @@ ActiveRecord::Schema.define(version: 2020_05_25_183420) do
   end
 
   add_foreign_key "departements", "regions"
+  add_foreign_key "etablissements", "departements"
+  add_foreign_key "etablissements", "regions"
   add_foreign_key "services", "typeservices"
   add_foreign_key "sous_service_etablsmts", "service_etablsmts"
   add_foreign_key "typeservices", "directions"

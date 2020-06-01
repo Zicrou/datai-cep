@@ -2,10 +2,10 @@ class CreateAgents < ActiveRecord::Migration[5.2]
   def change
     create_table :agents do |t|
       t.string :matricule
-      t.sting :nom
+      t.string :nom
       t.string :prenom
-      t.enum :titre
-      t.enum :sex
+      t.string :titre
+      t.string :sex
       t.date :date_de_naissance
       t.date :date_en_cours
       t.date :date_recrutement
@@ -13,7 +13,7 @@ class CreateAgents < ActiveRecord::Migration[5.2]
       t.string :nationalite
       t.string :email
       t.bigint :telephone
-      t.int :code_femme_marie
+      t.bigint :code_femme_marie
       t.string :nom_du_mari
 
       t.timestamps

@@ -1,7 +1,7 @@
 class CreateResidences < ActiveRecord::Migration[5.2]
   def change
     create_table :residences do |t|
-      t.int :code_residence
+      t.bigint :code_residence
       t.string :name
 
       t.timestamps
