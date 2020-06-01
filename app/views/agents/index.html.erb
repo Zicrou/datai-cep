@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Agents</h1>
-
-<table>
-  <thead>
+<h1 style="text-align:center;" >Agents</h1>
+<div class="table-responsive" style="padding-left: 0.5%;padding-right: 0.5%;">
+  <table class="table">
+  <thead class="thead-dark" >
     <tr>
       <th>Matricule</th>
       <th>Nom</th>
@@ -11,6 +11,7 @@
       <th>Titre</th>
       <th>Sex</th>
       <th>Date de naissance</th>
+      <th>Lieu de naissance</th>
       <th>Date En Cours</th>
       <th>Date de recrutement</th>
       <th>Nationalite</th>
@@ -25,28 +26,26 @@
   <tbody>
     <% @agents.each do |agent| %>
       <tr>
-        <td><%= agent.matricule %></td>
-        <td><%= agent.nom %></td>
-        <td><%= agent.prenom %></td>
-        <td><%= agent.titre %></td>
-        <td><%= agent.sex %></td>
-        <td><%= agent.date_de_naissance %></td>
-        <td><%= agent.lieu_de_naissance %></td>
-        <td><%= agent.date_en_cours %></td>
-        <td><%= agent.date_recrutement %></td>
-        <td><%= agent.nationalite %></td>
-        <td><%= agent.email %></td>
-        <td><%= agent.telephone %></td>
-        <td><%= agent.code_femme_marie %></td>
-        <td><%= agent.nom_du_mari %></td>
-        <td><%= link_to 'Show', agent %></td>
-        <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
-        <td><%= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Agent', new_agent_path %>
+        <td scope="row"><%= agent.matricule %></td>
+        <td scope="row"><%= agent.nom %></td>
+        <td scope="row"><%= agent.prenom %></td>
+        <td scope="row"><%= agent.titre %></td>
+        <td scope="row"><%= agent.sex %></td>
+        <td scope="row"><%= agent.date_de_naissance %></td>
+        <td scope="row"><%= agent.lieu_de_naissance %></td>
+        <td scope="row"><%= agent.date_en_cours %></td>
+        <td scope="row"><%= agent.date_recrutement %></td>
+        <td scope="row"><%= agent.nationalite %></td>
+        <td scope="row"><%= agent.email %></td>
+        <td scope="row"><%= agent.telephone %></td>
+        <td scope="row"><%= agent.code_femme_marie %></td>
+        <td scope="row"><%= agent.nom_du_mari %></td>
+        <td scope="row"><%= link_to 'Show', agent %></td>
+        <td scope="row"><%= link_to 'Edit', edit_agent_path(agent) %></td>
+        <td scope="row"><%= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <p><%= link_to 'Nouveau Agent', new_agent_path, class: "btn btn-primary" %></p>
+</div>

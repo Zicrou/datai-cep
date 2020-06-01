@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Prestations</h1>
-
-<table>
-  <thead>
+<h1 style="text-align:center;">Prestations</h1>
+  <div class="table-responsive" style="padding-left: 15%;padding-right: 15%;">
+  <table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>Code</th>
       <th>Name</th>
@@ -14,11 +14,11 @@
   <tbody>
     <% @prestations.each do |prestation| %>
       <tr>
-        <td><%= prestation.code %></td>
-        <td><%= prestation.name %></td>
-        <td><%= link_to 'Show', prestation %></td>
-        <td><%= link_to 'Edit', edit_prestation_path(prestation) %></td>
-        <td><%= link_to 'Destroy', prestation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td scope="row"><%= prestation.code %></td>
+        <td scope="row"><%= prestation.name %></td>
+        <td scope="row"><%= link_to 'Show', prestation %></td>
+        <td scope="row"><%= link_to 'Edit', edit_prestation_path(prestation) %></td>
+        <td scope="row"><%= link_to 'Destroy', prestation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Prestation', new_prestation_path %>
+<%= link_to 'Nouveau Prestation', new_prestation_path %>

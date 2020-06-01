@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Expatries</h1>
-
-<table>
-  <thead>
+<h1 style="text-align:center;">Expatries</h1>
+<div class="table-responsive" style="padding-left: 15%;padding-right: 15%;">
+  <table class="table">
+  <thead class="thead-dark" >
     <tr>
       <th>Code</th>
       <th>Name</th>
@@ -23,7 +23,5 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Expatry', new_expatry_path %>
+<%= link_to 'New Expatry', new_expatry_path, class: "btn btn-primary" %>
+</div>
