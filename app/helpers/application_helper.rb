@@ -15,19 +15,43 @@ module ApplicationHelper
       end
       
 
+#####################################################
+### Nav Out Of Referentiels                       ###
+
+def nav_H_item
+  [
+    {
+      url: root_path,
+      title: "Home"
+    },
+    {
+      url: "#",
+      title: "Ajouter un agent"
+    },
+  ]
+end
+
+def nav_H style, tag_type
+  nav_links = ''
+
+  nav_H_item.each do |item|
+    nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+  end
+  nav_links.html_safe
+end
+
+###END###
+#####################################################
+
+###
+
+#####################################################
+### Nav In Referentiels                       ###
       def nav_item
         [
           {
             url: root_path,
-            title: "Home"
-          },
-          {
-            url: etudiants_path,
-            title: "Dashboard"
-          },
-          {
-            url: new_etudiant_path,
-            title: "M'enregistrer"
+            title: "Refs"
           },
         ]
       end
@@ -44,6 +68,13 @@ module ApplicationHelper
       def active? path
         "active" if current_page? path
       end
+
+      ###END###
+#####################################################
+
+
+
+      
       
       def alerts
         alert = (flash[:alert] || flash[:error] || flash[:notice])
