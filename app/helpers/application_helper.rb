@@ -53,6 +53,10 @@ end
             url: root_path,
             title: "Refs"
           },
+          {
+            url: regions_path,
+            title: "Region"
+          },
         ]
       end
 
