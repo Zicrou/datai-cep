@@ -1,0 +1,54 @@
+Referenciels{
+    Table.banque[code, nom_banque]
+    Table.agence[id_banque, code_agence, nom]
+    Table.billeteur[code, nom_billeteur, Matricule]
+    Table.marier[name: Oui|Nom]
+    Table.region
+    Table.departement
+    Table.enfant
+    Table.conjoint
+}
+Saisie Agent{
+    INFORMATIONS PERSONNELLES{
+        t.string "matricule"
+        t.string "nom"
+        t.string "prenom"
+        t.date "date_de_naissance"
+        t.date "date PEC"
+        t.date "date_recrutement"
+        t.string "lieu_de_naissance"
+        t.string "nationalite"
+        t.string "email"
+        t.bigint "telephone"
+        t.bigint "marier_id"
+        t.bigint "titre_id"
+        t.bigint "sexe_id"
+        t.string "Adresse [Region Departement]"
+        Mode de paiement[Banque, Billeteur]
+        {
+            t.string "Num Compte bancaire [Banque, Agence]"  24 caracteres
+            ou
+            t.string "Code Billeteur"
+        }
+
+    }
+    INFORMATIONS ADMINISTRATIVES{
+        Region_id
+        Departement_id
+        Etablissement_id
+        Type Etablissement_id
+        Direction_id[id_etablissement, Nom]
+        Service_id
+        Emploi
+        Poste de paie[code, name]
+        Echellon [code]
+        Coprs [corps, name]
+        Grade [t.bigint indice, t.bigint code]
+
+    }
+    INFORMATIONS GRAPPE FAMILLIALE{
+        Table.enfant[Id_Matricule_agent, nom_enfant, prenom_enfant, date de naissance]
+        Table.conjoint[Id_Matricule_agent, photo_certficat_mariage, nom_conjoint, prenom_conjoint]
+    }
+}
+
