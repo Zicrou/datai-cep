@@ -57,6 +57,10 @@ end
             url: regions_path,
             title: "Region"
           },
+          {
+            url: departements_path,
+            title: "Departement"
+          },
         ]
       end
 
@@ -89,6 +93,6 @@ end
       end
     
       def alert_generator msg
-        js add_gritter(msg, title: "AESC...", sticky: false, time: 8000)
+        js add_gritter(msg, title: "DTAI-CEP...", sticky: false, time: 4000)
       end
 end
