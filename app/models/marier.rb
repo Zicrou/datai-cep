@@ -1,0 +1,2 @@
+class Marier < ApplicationRecord
+end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sexes
+  resources :mariers
   devise_for :users, path: '', path_names: {sign_in: 'Login', sign_out: 'Logout', sign_up: 'Register'}
   get 'pages/home'
   get 'pages/index'

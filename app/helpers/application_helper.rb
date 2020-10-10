@@ -61,6 +61,14 @@ end
             url: departements_path,
             title: "Departement"
           },
+          {
+            url: mariers_path,
+            title: "Marier"
+          },
+          {
+            url: sexes_path,
+            title: "Sexes"
+          },
         ]
       end
 
