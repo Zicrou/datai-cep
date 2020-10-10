@@ -1,0 +1,35 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <%= form_with(model: departement, local: true) do |form| %>
+    <% if departement.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(departement.errors.count, "error") %> prohibited this departement from being saved:</h2>
+
+        <ul>
+        <% departement.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control col-md-3' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :region_id %>
+      <%= form.collection_select(:region_id, Region.order(:name), :id, :name,
+          {
+            include_blank: true
+          },
+          class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</main>

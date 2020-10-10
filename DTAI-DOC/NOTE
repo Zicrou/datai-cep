@@ -2,9 +2,11 @@ Referenciels{
     Table.banque[code, nom_banque]
     Table.agence[id_banque, code_agence, nom]
     Table.billeteur[code, nom_billeteur, Matricule]
-    Table.marier[name: Oui|Nom]
-    Table.region
-    Table.departement
+   (DONE!) Table.region
+   (DONE!) Table.departement
+   (DONE!) Table.marier[name: Oui|Nom]
+   (DONE!) Table.sexe[name: M|F]
+   (DONE!) Table.titre[name: Mr|Mme|Mlle]
     Table.enfant
     Table.conjoint
 }
