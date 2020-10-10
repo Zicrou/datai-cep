@@ -67,7 +67,11 @@ end
           },
           {
             url: sexes_path,
-            title: "Sexes"
+            title: "Sexe"
+          },
+          {
+            url: titres_path,
+            title: "Titre"
           },
         ]
       end

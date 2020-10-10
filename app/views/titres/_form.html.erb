@@ -1,0 +1,25 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <%= form_with(model: titre, local: true) do |form| %>
+    <% if titre.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(titre.errors.count, "error") %> prohibited this titre from being saved:</h2>
+
+        <ul>
+        <% titre.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+</main>

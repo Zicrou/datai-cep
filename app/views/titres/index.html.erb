@@ -1,0 +1,30 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Titres</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @titres.each do |titre| %>
+        <tr>
+          <td><%= titre.name %></td>
+          <td><%= link_to 'Show', titre %></td>
+          <td><%= link_to 'Edit', edit_titre_path(titre) %></td>
+          <td><%= link_to 'Destroy', titre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Titre', new_titre_path %>
+
+</main>
