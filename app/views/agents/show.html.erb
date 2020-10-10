@@ -1,0 +1,87 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Matricule:</strong>
+    <%= @agent.matricule %>
+  </p>
+
+  <p>
+    <strong>Titre:</strong>
+    <%= @agent.titre.name %>
+  </p>
+
+  <p>
+    <strong>Marier:</strong>
+    <%= @agent.marier.name %>
+  </p>
+
+  <p>
+    <strong>Sexe:</strong>
+    <%= @agent.sexe.name %>
+  </p>
+
+  <p>
+    <strong>Nom:</strong>
+    <%= @agent.nom %>
+  </p>
+
+  <p>
+    <strong>Prenom:</strong>
+    <%= @agent.prenom %>
+  </p>
+
+  <p>
+    <strong>Date naissance:</strong>
+    <%= @agent.date_naissance %>
+  </p>
+
+  <p>
+    <strong>Date pec:</strong>
+    <%= @agent.date_pec %>
+  </p>
+
+  <p>
+    <strong>Date recrutement:</strong>
+    <%= @agent.date_recrutement %>
+  </p>
+
+  <p>
+    <strong>Lieu naissance:</strong>
+    <%= @agent.lieu_naissance %>
+  </p>
+
+  <p>
+    <strong>Nationalite:</strong>
+    <%= @agent.nationalite %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @agent.email %>
+  </p>
+
+  <p>
+    <strong>Telephone:</strong>
+    <%= @agent.telephone %>
+  </p>
+
+  <p>
+    <strong>Region:</strong>
+    <%= @agent.region.name %>
+  </p>
+
+  <p>
+    <strong>Departement:</strong>
+    <%= @agent.departement.name %>
+  </p>
+
+  <p>
+    <strong>Adresse:</strong>
+    <%= @agent.adresse %>
+  </p>
+
+  <%= link_to 'Edit', edit_agent_path(@agent) %> |
+  <%= link_to 'Back', agents_path %>
+
+</main>

@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_043756) do
+ActiveRecord::Schema.define(version: 2020_10_10_053632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agents", force: :cascade do |t|
+    t.string "matricule"
+    t.string "nom"
+    t.string "prenom"
+    t.date "date_naissance"
+    t.date "date_pec"
+    t.date "date_recrutement"
+    t.string "lieu_naissance"
+    t.string "nationalite"
+    t.string "email"
+    t.string "telephone"
+    t.string "adresse"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "marier_id"
+    t.bigint "titre_id"
+    t.bigint "sexe_id"
+    t.bigint "departement_id"
+    t.bigint "region_id"
+    t.index ["departement_id"], name: "index_agents_on_departement_id"
+    t.index ["marier_id"], name: "index_agents_on_marier_id"
+    t.index ["region_id"], name: "index_agents_on_region_id"
+    t.index ["sexe_id"], name: "index_agents_on_sexe_id"
+    t.index ["titre_id"], name: "index_agents_on_titre_id"
+  end
 
   create_table "departements", force: :cascade do |t|
     t.string "name"
@@ -47,5 +73,10 @@ ActiveRecord::Schema.define(version: 2020_10_10_043756) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "agents", "departements"
+  add_foreign_key "agents", "mariers"
+  add_foreign_key "agents", "regions"
+  add_foreign_key "agents", "sexes", column: "sexe_id"
+  add_foreign_key "agents", "titres"
   add_foreign_key "departements", "regions"
 end
