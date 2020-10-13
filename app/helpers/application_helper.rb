@@ -85,6 +85,10 @@ end
             url: billeteurs_path,
             title: "Billeteur"
           },
+          {
+            url: mode_paiements_path,
+            title: "Mode de Paiement"
+          },
         ]
       end
 

@@ -127,6 +127,18 @@
       <%= form.text_field :adresse, class:"form-control col-md-3 "%>
     </div>
 
+    <div class="form-group">
+      <%= form.label :mode_paiement_id %>
+      <%= form.collection_select(:mode_paiement_id, ModePaiement.all, :id, :name,
+          {
+            include_blank: true
+          },
+            #onchange: 'getIDDomaine()',
+            class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+
     <div class="actions">
       <%= form.submit %>
     </div>

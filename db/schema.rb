@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_052833) do
+ActiveRecord::Schema.define(version: 2020_10_13_055354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 2020_10_13_052833) do
     t.bigint "sexe_id"
     t.bigint "departement_id"
     t.bigint "region_id"
+    t.bigint "mode_paiement_id"
     t.index ["departement_id"], name: "index_agents_on_departement_id"
     t.index ["marier_id"], name: "index_agents_on_marier_id"
+    t.index ["mode_paiement_id"], name: "index_agents_on_mode_paiement_id"
     t.index ["region_id"], name: "index_agents_on_region_id"
     t.index ["sexe_id"], name: "index_agents_on_sexe_id"
     t.index ["titre_id"], name: "index_agents_on_titre_id"
@@ -79,6 +81,12 @@ ActiveRecord::Schema.define(version: 2020_10_13_052833) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mode_paiements", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -100,6 +108,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_052833) do
   add_foreign_key "agences", "banques"
   add_foreign_key "agents", "departements"
   add_foreign_key "agents", "mariers"
+  add_foreign_key "agents", "mode_paiements"
   add_foreign_key "agents", "regions"
   add_foreign_key "agents", "sexes", column: "sexe_id"
   add_foreign_key "agents", "titres"
