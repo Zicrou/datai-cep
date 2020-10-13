@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :billeteurs
   resources :agences
   resources :banques
   resources :titres

@@ -81,6 +81,10 @@ end
             url: agences_path,
             title: "Agence"
           },
+          {
+            url: billeteurs_path,
+            title: "Billeteur"
+          },
         ]
       end
 

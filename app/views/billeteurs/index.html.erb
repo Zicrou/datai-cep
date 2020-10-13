@@ -1,0 +1,34 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <p id="notice"><%= notice %></p>
+
+  <h1>Billeteurs</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Nom billeteur</th>
+        <th>Matricule</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @billeteurs.each do |billeteur| %>
+        <tr>
+          <td><%= billeteur.code %></td>
+          <td><%= billeteur.nom_billeteur %></td>
+          <td><%= billeteur.matricule %></td>
+          <td><%= link_to 'Show', billeteur %></td>
+          <td><%= link_to 'Edit', edit_billeteur_path(billeteur) %></td>
+          <td><%= link_to 'Destroy', billeteur, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Billeteur', new_billeteur_path %>
+
+</main>

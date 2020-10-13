@@ -1,0 +1,2 @@
+class Billeteur < ApplicationRecord
+end
