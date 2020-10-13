@@ -73,6 +73,14 @@ end
             url: titres_path,
             title: "Titre"
           },
+          {
+            url: banques_path,
+            title: "Banque"
+          },
+          {
+            url: agences_path,
+            title: "Agence"
+          },
         ]
       end
 

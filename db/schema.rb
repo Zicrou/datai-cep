@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_053632) do
+ActiveRecord::Schema.define(version: 2020_10_12_024812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agences", force: :cascade do |t|
+    t.string "name"
+    t.string "code_agence"
+    t.bigint "banque_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["banque_id"], name: "index_agences_on_banque_id"
+  end
 
   create_table "agents", force: :cascade do |t|
     t.string "matricule"
@@ -39,6 +48,13 @@ ActiveRecord::Schema.define(version: 2020_10_10_053632) do
     t.index ["region_id"], name: "index_agents_on_region_id"
     t.index ["sexe_id"], name: "index_agents_on_sexe_id"
     t.index ["titre_id"], name: "index_agents_on_titre_id"
+  end
+
+  create_table "banques", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "departements", force: :cascade do |t|
@@ -73,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_053632) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "agences", "banques"
   add_foreign_key "agents", "departements"
   add_foreign_key "agents", "mariers"
   add_foreign_key "agents", "regions"

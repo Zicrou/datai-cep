@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :agences
+  resources :banques
   resources :titres
   resources :sexes
   resources :mariers

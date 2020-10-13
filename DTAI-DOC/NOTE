@@ -12,20 +12,21 @@ Referenciels{
 }
 Saisie Agent{
     INFORMATIONS PERSONNELLES{
-        t.string "matricule"
-        t.string "nom"
-        t.string "prenom"
-        t.date "date_de_naissance"
-        t.date "date PEC"
-        t.date "date_recrutement"
-        t.string "lieu_de_naissance"
-        t.string "nationalite"
-        t.string "email"
-        t.bigint "telephone"
-        t.bigint "marier_id"
-        t.bigint "titre_id"
-        t.bigint "sexe_id"
-        t.string "Adresse [Region Departement]"
+       (DONE!) t.string "matricule"
+       (DONE!) t.string "nom"
+       (DONE!) t.string "prenom"
+       (DONE!) t.date "date_de_naissance"
+       (DONE!) t.date "date PEC"
+       (DONE!) t.date "date_recrutement"
+       (DONE!) t.string "lieu_de_naissance"
+       (DONE!) t.string "nationalite"
+       (DONE!) t.string "email"
+       (DONE!) t.bigint "telephone"
+       (DONE!) t.bigint "marier_id"
+       (DONE!) t.bigint "titre_id"
+       (DONE!) t.bigint "sexe_id"
+       (DONE!) t.string "Adresse [Region Departement]"
+        
         Mode de paiement[Banque, Billeteur]
         {
             t.string "Num Compte bancaire [Banque, Agence]"  24 caracteres

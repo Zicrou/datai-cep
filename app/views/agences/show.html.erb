@@ -1,0 +1,22 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @agence.name %>
+  </p>
+
+  <p>
+    <strong>Code agence:</strong>
+    <%= @agence.code_agence %>
+  </p>
+
+  <p>
+    <strong>Banque:</strong>
+    <%= @agence.banque.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_agence_path(@agence) %> |
+  <%= link_to 'Back', agences_path %>
+
+</main>
