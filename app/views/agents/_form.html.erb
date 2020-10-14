@@ -69,12 +69,12 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :date_pec %>
+      <%= form.label :date_de_prise_en_compte_automatique! %>
       <%= form.date_field :date_pec, class:"form-control col-md-3 "%>
     </div>
 
     <div class="form-group">
-      <%= form.label :date_recrutement, class:"form-control col-md-3 "%>
+      <%= form.label :date_recrutement %>
       <%= form.date_field :date_recrutement, class:"form-control col-md-3 "%>
     </div>
 
@@ -133,14 +133,66 @@
           {
             include_blank: true
           },
-            #onchange: 'getIDDomaine()',
+            onchange: 'getmodepaiement()',
             class: 'form-control col-md-3'
         ) 
       %>
     </div>
+<!-- DEBUT DIV MODE PAIEMENT BANQUE-->
+    <div class="mode_banque" id="mode_banque" style="display:none">
+      <div class="form-group">
+        <%= form.label :banque_id %>
+        <%= form.collection_select(:banque_id, Banque.all, :id, :name,
+            {
+              include_blank: true
+            },
+              #onchange: 'getmodepaiement()',
+              class: 'form-control col-md-3'
+          ) 
+        %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :agence_id %>
+        <%= form.collection_select(:agence_id, Agence.all, :id, :name,
+            {
+              include_blank: true
+            },
+              #onchange: 'getmodepaiement()',
+              class: 'form-control col-md-3'
+          ) 
+        %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :numcomptebancaire %>      
+        <%= form.text_field :numcomptebancaire, class:"form-control col-md-3 "%>
+      </div>
+    </div>
+
+<!-- FIN DIV MODE PAIEMENT BANQUE -->
+
+<!-- DEBUT DIV MODE PAIEMENT BILLETEUR -->
+    <div class="mode_billeteur" id="mode_billeteur" style="display:none;">
+      <div class="form-group">
+        <%= form.label :billeteur_id %>
+        <%= form.collection_select(:billeteur_id, Billeteur.all, :id, :nom_billeteur,
+            {
+              include_blank: true
+            },
+              #onchange: 'getmodepaiement()',
+              class: 'form-control col-md-3'
+          ) 
+        %>
+      </div>
+    </div>
+<!-- FIN DIV MODE PAIEMENT BILLETEUR -->
+
+
+    <div class="form-group" id="modepaie" style=""></div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit class:"btn btn-primary", placeholder:"24 caracteres"%>
     </div>
   <% end %>
 
