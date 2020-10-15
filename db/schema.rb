@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_055354) do
+ActiveRecord::Schema.define(version: 2020_10_15_025739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 2020_10_13_055354) do
     t.bigint "departement_id"
     t.bigint "region_id"
     t.bigint "mode_paiement_id"
+    t.bigint "banque_id"
+    t.bigint "agence_id"
+    t.bigint "billeteur_id"
+    t.string "numcomptebancaire"
+    t.index ["agence_id"], name: "index_agents_on_agence_id"
+    t.index ["banque_id"], name: "index_agents_on_banque_id"
+    t.index ["billeteur_id"], name: "index_agents_on_billeteur_id"
     t.index ["departement_id"], name: "index_agents_on_departement_id"
     t.index ["marier_id"], name: "index_agents_on_marier_id"
     t.index ["mode_paiement_id"], name: "index_agents_on_mode_paiement_id"
@@ -106,6 +113,9 @@ ActiveRecord::Schema.define(version: 2020_10_13_055354) do
   end
 
   add_foreign_key "agences", "banques"
+  add_foreign_key "agents", "agences"
+  add_foreign_key "agents", "banques"
+  add_foreign_key "agents", "billeteurs"
   add_foreign_key "agents", "departements"
   add_foreign_key "agents", "mariers"
   add_foreign_key "agents", "mode_paiements"

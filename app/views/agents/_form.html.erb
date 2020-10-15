@@ -146,13 +146,13 @@
             {
               include_blank: true
             },
-              #onchange: 'getmodepaiement()',
+              onchange: 'getIdBanque()',
               class: 'form-control col-md-3'
           ) 
         %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group agences" data-agences="<%= @agences.to_json %>">
         <%= form.label :agence_id %>
         <%= form.collection_select(:agence_id, Agence.all, :id, :name,
             {
@@ -188,10 +188,7 @@
     </div>
 <!-- FIN DIV MODE PAIEMENT BILLETEUR -->
 
-
-    <div class="form-group" id="modepaie" style=""></div>
-
-    <div class="actions">
+  <div class="actions">
       <%= form.submit class:"btn btn-primary", placeholder:"24 caracteres"%>
     </div>
   <% end %>
