@@ -129,9 +129,13 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry (0.13.1-java)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+      spoon (~> 0.0)
     puma (3.12.4)
     puma (3.12.4-java)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.2)
@@ -187,6 +191,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    spoon (0.0.6)
+      ffi
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
