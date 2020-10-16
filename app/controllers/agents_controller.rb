@@ -51,8 +51,11 @@ class AgentsController < ApplicationController
     else
       #pry
       @agent = Agent.new(agent_params)
-      @agent.save
+      if @agent.save
       redirect_to @agent, notice: 'Agent was successfully created.'
+      else
+        render :new
+      end
     end
   end
 
