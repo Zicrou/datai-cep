@@ -27,6 +27,8 @@ class AgentsController < ApplicationController
 
   # POST /agents
   def create
+    @agent = Agent.new(agent_params)
+
     @mode_paiement = params[:agent][:mode_paiement_id]
     @billeteur = params[:agent][:billeteur_id]
     @banque = params[:agent][:banque_id]
@@ -50,7 +52,6 @@ class AgentsController < ApplicationController
       #pry
     else
       #pry
-      @agent = Agent.new(agent_params)
       if @agent.save
       redirect_to @agent, notice: 'Agent was successfully created.'
       else
@@ -84,8 +85,11 @@ class AgentsController < ApplicationController
       #pry
     else
       #pry
-      @agent.update(agent_params)
-      redirect_to @agent, notice: 'Agent was successfully updated.'
+      if @agent.update(agent_params)
+        redirect_to @agent, notice: 'Agent was successfully updated.'
+      else
+        render :edit
+      end
     end
   end
 
