@@ -81,6 +81,34 @@
     <%= @agent.adresse %>
   </p>
 
+  <p>
+    <strong>Mode de paiment:</strong>
+    <%= @agent.mode_paiement.name%>
+  </p>
+
+  <% if @agent.mode_paiement_id == 1 %>
+    <p>
+      <strong>Billeteur:</strong>
+      <%= @agent.billeteur.nom_billeteur + " (" + @agent.billeteur.code + ")" %>
+    </p>
+
+  <% else %>  
+    <p>
+      <strong>Banque:</strong>
+      <%= @agent.banque.name %>
+    </p>
+
+    <p>
+      <strong>Banque:</strong>
+      <%= @agent.agence.name %>
+    </p>
+
+    <p>
+      <strong>Banque:</strong>
+      <%= @agent.numcomptebancaire %>
+    </p>
+
+  <% end %>
   <%= link_to 'Edit', edit_agent_path(@agent) %> |
   <%= link_to 'Back', agents_path %>
 
