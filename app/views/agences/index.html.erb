@@ -1,0 +1,34 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <p id="notice"><%= notice %></p>
+
+  <h1>Agences</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Code agence</th>
+        <th>Banque</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @agences.each do |agence| %>
+        <tr>
+          <td><%= agence.name %></td>
+          <td><%= agence.code_agence %></td>
+          <td><%= agence.banque.name %></td>
+          <td><%= link_to 'Show', agence %></td>
+          <td><%= link_to 'Edit', edit_agence_path(agence) %></td>
+          <td><%= link_to 'Destroy', agence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Agence', new_agence_path %>
+
+</main>

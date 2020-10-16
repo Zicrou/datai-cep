@@ -1,0 +1,199 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <%= form_with(model: agent, local: true) do |form| %>
+    <% if agent.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
+
+        <ul>
+        <% agent.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% if @msg_erreur %>
+      <li style="color:red;font-weight:bold;"><%= @msg_erreur %></li>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :matricule %>
+      <%= form.text_field :matricule, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :titre_id %>
+      <%= form.collection_select(:titre_id, Titre.all, :id, :name,
+          {
+            include_blank: true
+          },
+            #onchange: 'getIDDomaine()',
+            class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :marier_id %>
+      <%= form.collection_select(:marier_id, Marier.all, :id, :name,
+          {
+            include_blank: true
+          },
+            #onchange: 'getIDDomaine()',
+            class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :sexe_id %>
+      <%= form.collection_select(:sexe_id, Sexe.all, :id, :name,
+          {
+            include_blank: true
+          },
+            #onchange: 'getIDDomaine()',
+            class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :nom %>
+      <%= form.text_field :nom, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :prenom %>
+      <%= form.text_field :prenom, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :date_naissance %>
+      <%= form.date_field :date_naissance, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :date_de_prise_en_compte_automatique! %>
+      <%= form.date_field :date_pec, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :date_recrutement %>
+      <%= form.date_field :date_recrutement, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :lieu_naissance %>
+      <%= form.text_field :lieu_naissance, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :nationalite %>
+      <%= form.text_field :nationalite, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :telephone %>
+      <%= form.text_field :telephone, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :region_id %>
+      <%= form.collection_select(:region_id, Region.all, :id, :name,
+          {
+            include_blank: true
+          },
+            #onchange: 'getIDDomaine()',
+            class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :departement_id %>
+      <%= form.collection_select(:departement_id, Departement.all, :id, :name,
+          {
+            include_blank: true
+          },
+            #onchange: 'getIDDomaine()',
+            class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :adresse %>
+      <%= form.text_field :adresse, class:"form-control col-md-3 "%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :mode_paiement_id %>
+      <%= form.collection_select(:mode_paiement_id, ModePaiement.all, :id, :name,
+          {
+            include_blank: true
+          },
+            onchange: 'getmodepaiement()',
+            class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+<!-- DEBUT DIV MODE PAIEMENT BANQUE-->
+    <div class="mode_banque" id="mode_banque" style="display:none">
+      <div class="form-group">
+        <%= form.label :banque_id %>
+        <%= form.collection_select(:banque_id, Banque.all, :id, :name,
+            {
+              include_blank: true
+            },
+              onchange: 'getIdBanque()',
+              class: 'form-control col-md-3'
+          ) 
+        %>
+      </div>
+
+      <div class="form-group agences" data-agences="<%= @agences.to_json %>">
+        <%= form.label :agence_id %>
+        <%= form.collection_select(:agence_id, Agence.all, :id, :name,
+            {
+              include_blank: true
+            },
+              #onchange: 'getmodepaiement()',
+              class: 'form-control col-md-3'
+          ) 
+        %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :numcomptebancaire %>      
+        <%= form.text_field :numcomptebancaire, class:"form-control col-md-3 "%>
+      </div>
+    </div>
+
+<!-- FIN DIV MODE PAIEMENT BANQUE -->
+
+<!-- DEBUT DIV MODE PAIEMENT BILLETEUR -->
+    <div class="mode_billeteur" id="mode_billeteur" style="display:none;">
+      <div class="form-group">
+        <%= form.label :billeteur_id %>
+        <%= form.collection_select(:billeteur_id, Billeteur.all, :id, :nom_billeteur,
+            {
+              include_blank: true
+            },
+              #onchange: 'getmodepaiement()',
+              class: 'form-control col-md-3'
+          ) 
+        %>
+      </div>
+    </div>
+<!-- FIN DIV MODE PAIEMENT BILLETEUR -->
+
+  <div class="actions">
+      <%= form.submit class:"btn btn-primary", placeholder:"24 caracteres"%>
+    </div>
+  <% end %>
+
+</main>

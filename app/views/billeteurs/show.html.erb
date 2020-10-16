@@ -1,0 +1,22 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Code:</strong>
+    <%= @billeteur.code %>
+  </p>
+
+  <p>
+    <strong>Nom billeteur:</strong>
+    <%= @billeteur.nom_billeteur %>
+  </p>
+
+  <p>
+    <strong>Matricule:</strong>
+    <%= @billeteur.matricule %>
+  </p>
+
+  <%= link_to 'Edit', edit_billeteur_path(@billeteur) %> |
+  <%= link_to 'Back', billeteurs_path %>
+
+</main>

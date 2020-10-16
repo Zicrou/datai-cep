@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :billeteurs
+  resources :agences
+  resources :banques
   resources :titres
   resources :sexes
   resources :mariers
@@ -10,7 +13,11 @@ Rails.application.routes.draw do
   resources :prestations
   resources :expatries
   resources :residences
-  resources :agents
+  resources :agents do
+    collection do
+      get :agencebybanque
+    end
+  end
   resources :positions
   resources :postes
   resources :echellons

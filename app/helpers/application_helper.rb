@@ -25,7 +25,7 @@ def nav_H_item
       title: "Home"
     },
     {
-      url: "#",
+      url: agents_path,
       title: "Ajouter un agent"
     },
   ]
@@ -72,6 +72,22 @@ end
           {
             url: titres_path,
             title: "Titre"
+          },
+          {
+            url: banques_path,
+            title: "Banque"
+          },
+          {
+            url: agences_path,
+            title: "Agence"
+          },
+          {
+            url: billeteurs_path,
+            title: "Billeteur"
+          },
+          {
+            url: mode_paiements_path,
+            title: "Mode de Paiement"
           },
         ]
       end
