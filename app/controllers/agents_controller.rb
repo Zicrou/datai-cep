@@ -43,7 +43,7 @@ class AgentsController < ApplicationController
       #puts @msg = "I am here now"
       render :new
       #pry
-    elsif (@mode_paiement == "2")  and (@banque == "" or agence == "" or @numcomptebancaire == "")
+    elsif (@mode_paiement == "2")  and (@banque == "" or @agence == "" or @numcomptebancaire == "")
       @msg_erreur = 'Veuillez completer les informations banquaires'
       #puts @msg = "I am here again"
       render :new
