@@ -36,17 +36,17 @@ class AgentsController < ApplicationController
     if @mode_paiement == ""
       @msg_erreur = 'Veuillez choisir un mode de paiement'
       #puts @msg = "I am here"
-      render :edit
+      render :new
       #pry
     elsif (@mode_paiement == "1") and (@billeteur == "")
       @msg_erreur = 'Veuillez completer les informations du billeteur'
       #puts @msg = "I am here now"
-      render :edit
+      render :new
       #pry
     elsif (@mode_paiement == "2")  and (@banque == "" or agence == "" or @numcomptebancaire == "")
       @msg_erreur = 'Veuillez completer les informations banquaires'
       #puts @msg = "I am here again"
-      render :edit
+      render :new
       #pry
     else
       #pry
@@ -125,6 +125,6 @@ class AgentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def agent_params
-      params.require(:agent).permit(:matricule, :nom, :prenom, :date_naissance, :date_pec, :date_recrutement, :lieu_naissance, :nationalite, :email, :telephone, :adresse, :marier_id, :titre_id, :sexe_id, :region_id, :departement_id, :mode_paiement_id, :banque_id, :agence_id, :billeteur_id, :numcomptebancaire)
+      params.require(:agent).permit(:matricule, :nom, :prenom, :date_naissance, :date_recrutement, :lieu_naissance, :nationalite, :email, :telephone, :adresse, :marier_id, :titre_id, :sexe_id, :region_id, :departement_id, :mode_paiement_id, :banque_id, :agence_id, :billeteur_id, :numcomptebancaire)
     end
 end
