@@ -107,19 +107,18 @@
           {
             include_blank: true
           },
-            #onchange: 'getIDDomaine()',
+            onchange: 'getIdregion()',
             class: 'form-control col-md-3'
         ) 
       %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group departements" data-departements="<%= @departements.to_json %>">
       <%= form.label :departement_id %>
       <%= form.collection_select(:departement_id, Departement.all, :id, :name,
           {
             include_blank: true
           },
-            #onchange: 'getIDDomaine()',
             class: 'form-control col-md-3'
         ) 
       %>

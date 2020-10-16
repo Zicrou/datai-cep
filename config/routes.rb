@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     collection do
       get :agencebybanque
     end
+    collection do
+      get :departementbyregion
+    end
   end
   resources :positions
   resources :postes

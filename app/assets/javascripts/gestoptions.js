@@ -50,3 +50,39 @@ function getIdBanque() {
 //**************************************************
 // FIN Fonction de tri agence/banque
 //*********************************************** */
+
+
+
+
+
+//**************************************************
+// DEBUT Fonction Affichage Departement/Region
+//*********************************************** */
+function getIdregion() {
+    var regionId = document.getElementById("agent_region_id").value
+    if (regionId == "") {
+        $("#agent_departement_id").children().remove();
+        var departements = $('.departements').data('departements')
+        var listdepartement = [];
+        $.each(departements,function(key, value) {
+            listdepartement += '<option value="' + value.id+ '">' + value.name + '</option>';
+        });
+        $("#agent_departement_id").append(listdepartement).prepend("<option value='' selected='selected'></option>");
+    }else{
+        $.ajax({
+            url: "/agents/departementbyregion",
+            type: "GET",
+            data: {regionID: regionId},
+            success: function(data) {
+                $("#agent_departement_id").children().remove();
+                var listdepartement = [];
+                $.each(data,function(key, value) {
+                    listdepartement += '<option value="' + value.id+ '">' + value.name + '</option>';
+                });
+                $("#agent_departement_id").append(listdepartement).prepend("<option value='' selected='selected'></option>");
+            }
+        });
+    }
+}
+//**************************************************
+// FIN Fonction Affichage Departement/Region ********* */

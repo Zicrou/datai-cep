@@ -1,6 +1,6 @@
 class AgentsController < ApplicationController
   before_action :set_agent, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy, :agencebybanque], user: :all
+  access all: [:index, :show, :new, :edit, :create, :update, :destroy, :agencebybanque, :departementbyregion], user: :all
 
   # GET /agents
   def index
@@ -16,10 +16,13 @@ class AgentsController < ApplicationController
   def new
     @agent = Agent.new
     @agences = Agence.all
+    @departements = Departement.all
   end
 
   # GET /agents/1/edit
   def edit
+    @agences = Agence.all
+    @departements = Departement.all
   end
 
   # POST /agents
@@ -98,6 +101,18 @@ class AgentsController < ApplicationController
       #puts  @agences
       respond_to do |format|
         format.json { render json: @agences }
+      end
+    end
+  end
+
+
+  def departementbyregion
+    @region = params[:regionID]
+    if !@region.nil?
+      @departements = Departement.where(region_id: @region)
+      
+      respond_to do |format|
+        format.json { render json: @departements }
       end
     end
   end
