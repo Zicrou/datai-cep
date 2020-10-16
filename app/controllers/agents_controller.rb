@@ -35,12 +35,31 @@ class AgentsController < ApplicationController
 
   # PATCH/PUT /agents/1
   def update
-    puts @agent.banque_id.nil? @agent.agence_id.nil? @agent.numcomptebancaire.nil?
-
-    if @agent.update(agent_params)
-      redirect_to @agent, notice: 'Agent was successfully updated.'
-    else
+    @mode_paiement = params[:agent][:mode_paiement_id]
+    @billeteur = params[:agent][:billeteur_id]
+    @banque = params[:agent][:banque_id]
+    @agence = params[:agent][:agence_id]
+    @numcomptebancaire = params[:agent][:numcomptebancaire]
+    #pry
+    if @mode_paiement == ""
+      @msg_erreur = 'Veuillez choisir un mode de paiement'
+      #puts @msg = "I am here"
       render :edit
+      #pry
+    elsif (@mode_paiement == "1") and (@billeteur == "")
+      @msg_erreur = 'Veuillez completer les informations du billeteur'
+      #puts @msg = "I am here now"
+      render :edit
+      #pry
+    elsif (@mode_paiement == "2")  and (@banque == "" or agence == "" or @numcomptebancaire == "")
+      @msg_erreur = 'Veuillez completer les informations sur la banque'
+      #puts @msg = "I am here again"
+      render :edit
+      #pry
+    else
+      #pry
+      @agent.update(agent_params)
+      redirect_to @agent, notice: 'Agent was successfully updated.'
     end
   end
 

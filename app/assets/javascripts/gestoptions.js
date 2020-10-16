@@ -10,8 +10,8 @@ function getmodepaiement() {
         document.getElementById("mode_billeteur").style.display="none"
         document.getElementById("mode_banque").style.display="block"
     }else{
-        document.getElementById("mode_banque").style.display="none"
         document.getElementById("mode_billeteur").style.display="none"
+        document.getElementById("mode_banque").style.display="none"
     }
 }
 //**************************************************

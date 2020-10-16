@@ -11,6 +11,9 @@
         </ul>
       </div>
     <% end %>
+    <% if @msg_erreur %>
+      <li style="color:red;font-weight:bold;"><%= @msg_erreur %></li>
+    <% end %>
 
     <div class="form-group">
       <%= form.label :matricule %>
