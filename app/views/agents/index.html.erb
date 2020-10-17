@@ -1,7 +1,9 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
   <p id="notice"><%= notice %></p>
 
-  <h1>Agents</h1>
+  <h1><%= link_to 'Ajouter Agent', new_agent_path, class:"btn btn-primary" %></h1> 
+  <h2><u>Listes des agents:</u></h2>
+  <br>
 
   <table>
     <thead>
@@ -34,8 +36,6 @@
           <td>||</td>
           <td><%= agent.date_recrutement %></td>
           <th>||</th>
-          <td><%= agent.lieu_naissance %></td>
-          <th>||</th>
           <td><%= agent.telephone %></td>
           <td class="btn btn-primary" style="margin: 0.6em;" data-toggle="modal" data-target="#<%= dom_id(agent) %>">
                 Voir Information
@@ -59,6 +59,15 @@
                     <p>
                       <strong>Email: </strong><%= agent.email %>
                     </p>
+
+                    <p>
+                      <strong>Date de naissance: </strong><%= agent.date_naissance %>
+                    </p>
+                    
+                    <p>
+                      <strong>Lieu de naissance: </strong><%= agent.lieu_naissance %>
+                    </p>
+
                     <% if agent.mode_paiement_id == 1 %>
                       <p>
                         <strong>Billeteur:</strong>
@@ -96,7 +105,5 @@
   </table>
 
   <br>
-
-  <%= link_to 'New Agent', new_agent_path %>
 
 </main>

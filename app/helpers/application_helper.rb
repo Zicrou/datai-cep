@@ -26,7 +26,7 @@ def nav_H_item
     },
     {
       url: agents_path,
-      title: "Ajouter un agent"
+      title: "Les Agents"
     },
   ]
 end
