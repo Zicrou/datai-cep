@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def index
   end
+
+  def grappe_familliale
+    
+  end
 end

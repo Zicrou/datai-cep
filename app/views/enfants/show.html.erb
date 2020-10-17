@@ -1,0 +1,27 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Nom:</strong>
+    <%= @enfant.nom %>
+  </p>
+
+  <p>
+    <strong>Prenom:</strong>
+    <%= @enfant.prenom %>
+  </p>
+
+  <p>
+    <strong>Date naissance:</strong>
+    <%= @enfant.date_naissance %>
+  </p>
+
+  <p>
+    <strong>Agent:</strong>
+    <%= @enfant.agent %>
+  </p>
+
+  <%= link_to 'Edit', edit_enfant_path(@enfant) %> |
+  <%= link_to 'Back', enfants_path %>
+
+</main>

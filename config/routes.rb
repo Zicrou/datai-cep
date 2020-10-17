@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :enfants
   resources :billeteurs
   resources :agences
   resources :banques
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {sign_in: 'Login', sign_out: 'Logout', sign_up: 'Register'}
   get 'pages/home'
   get 'pages/index'
+  get 'pages/grappe_familliale'
   resources :emplois
   #resources :preststions
   resources :prestations
