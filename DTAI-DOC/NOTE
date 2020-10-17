@@ -11,7 +11,8 @@ Referenciels{
     Table.conjoint
 }
 Saisie Agent{
-    INFORMATIONS PERSONNELLES{
+
+   (DONE!) INFORMATIONS PERSONNELLES{
        (DONE!) t.string "matricule"
        (DONE!) t.string "nom"
        (DONE!) t.string "prenom"
@@ -35,6 +36,7 @@ Saisie Agent{
         }
 
     }
+    
     INFORMATIONS ADMINISTRATIVES{
         Region_id
         Departement_id
