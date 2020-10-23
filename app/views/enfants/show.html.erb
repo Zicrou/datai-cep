@@ -1,6 +1,6 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
   <p id="notice"><%= notice %></p>
-
+  <h3>Enfant de l'agent:  <strong><%= @enfant.agent.nom + " " + @enfant.agent.prenom + " (" +  @enfant.agent.matricule + ") " %></strong></h3>
   <p>
     <strong>Nom:</strong>
     <%= @enfant.nom %>
@@ -17,11 +17,12 @@
   </p>
 
   <p>
-    <strong>Agent:</strong>
-    <%= @enfant.agent %>
+    
+    <p></p>
+    <p></p>
   </p>
 
   <%= link_to 'Edit', edit_enfant_path(@enfant) %> |
-  <%= link_to 'Back', enfants_path %>
+  <%= link_to 'Back', enfants_path() %>
 
 </main>

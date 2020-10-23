@@ -4,7 +4,14 @@ class EnfantsController < ApplicationController
 
   # GET /enfants
   def index
-    @enfants = Enfant.all
+    @id_agent = params["id_agent"]
+    session[:id_agent] = @id_agent if !@id_agent.nil?
+  
+   # @enfants = Enfant.all
+    
+    #@IDenfant = Enfant.find(params["enfantId"]) if  !@IDenfant.nil?
+    @enfants = Enfant.where(agent_id: session[:id_agent])
+    pry
   end
 
   # GET /enfants/1
@@ -14,6 +21,8 @@ class EnfantsController < ApplicationController
   # GET /enfants/new
   def new
     @enfant = Enfant.new
+    #@id_agent = params["id_agent"]
+    pry
   end
 
   # GET /enfants/1/edit
@@ -23,7 +32,8 @@ class EnfantsController < ApplicationController
   # POST /enfants
   def create
     @enfant = Enfant.new(enfant_params)
-
+    @enfant.agent_id = session[:id_agent]
+    pry
     if @enfant.save
       redirect_to @enfant, notice: 'Enfant was successfully created.'
     else

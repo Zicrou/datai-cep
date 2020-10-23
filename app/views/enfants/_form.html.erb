@@ -12,25 +12,22 @@
       </div>
     <% end %>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :nom %>
-      <%= form.text_field :nom %>
+      <%= form.text_field :nom, class:"form-control col-md-3" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :prenom %>
-      <%= form.text_field :prenom %>
+      <%= form.text_field :prenom, class:"form-control col-md-3" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :date_naissance %>
-      <%= form.date_select :date_naissance %>
+      <%= form.date_field :date_naissance, class:"form-control col-md-3" %>
     </div>
 
-    <div class="field">
-      <%= form.label :agent_id %>
-      <%= form.text_field :agent_id %>
-    </div>
+    
 
     <div class="actions">
       <%= form.submit %>
