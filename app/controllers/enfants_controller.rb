@@ -11,7 +11,7 @@ class EnfantsController < ApplicationController
     
     #@IDenfant = Enfant.find(params["enfantId"]) if  !@IDenfant.nil?
     @enfants = Enfant.where(agent_id: session[:id_agent])
-    pry
+    
   end
 
   # GET /enfants/1
@@ -22,7 +22,7 @@ class EnfantsController < ApplicationController
   def new
     @enfant = Enfant.new
     #@id_agent = params["id_agent"]
-    pry
+    
   end
 
   # GET /enfants/1/edit
@@ -33,7 +33,7 @@ class EnfantsController < ApplicationController
   def create
     @enfant = Enfant.new(enfant_params)
     @enfant.agent_id = session[:id_agent]
-    pry
+    
     if @enfant.save
       redirect_to @enfant, notice: 'Enfant was successfully created.'
     else
