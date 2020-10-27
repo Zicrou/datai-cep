@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_17_082921) do
+ActiveRecord::Schema.define(version: 2020_10_24_021104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,16 @@ ActiveRecord::Schema.define(version: 2020_10_17_082921) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "conjoints", force: :cascade do |t|
+    t.string "nom"
+    t.string "prenom"
+    t.string "photo_certificat_mariage"
+    t.bigint "agent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agent_id"], name: "index_conjoints_on_agent_id"
+  end
+
   create_table "departements", force: :cascade do |t|
     t.string "name"
     t.bigint "region_id"
@@ -132,6 +142,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_082921) do
   add_foreign_key "agents", "regions"
   add_foreign_key "agents", "sexes", column: "sexe_id"
   add_foreign_key "agents", "titres"
+  add_foreign_key "conjoints", "agents"
   add_foreign_key "departements", "regions"
   add_foreign_key "enfants", "agents"
 end

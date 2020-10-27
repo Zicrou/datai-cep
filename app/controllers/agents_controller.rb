@@ -9,7 +9,7 @@ class AgentsController < ApplicationController
 
   # GET /agents/1
   def show
-    #pry
+    
   end
 
   # GET /agents/new
@@ -34,24 +34,24 @@ class AgentsController < ApplicationController
     @banque = params[:agent][:banque_id]
     @agence = params[:agent][:agence_id]
     @numcomptebancaire = params[:agent][:numcomptebancaire]
-    #pry
+    
     if @mode_paiement == ""
       @msg_erreur = 'Veuillez choisir un mode de paiement'
       #puts @msg = "I am here"
       render :new
-      #pry
+      
     elsif (@mode_paiement == "1") and (@billeteur == "")
       @msg_erreur = 'Veuillez completer les informations du billeteur'
       #puts @msg = "I am here now"
       render :new
-      #pry
+      
     elsif (@mode_paiement == "2")  and (@banque == "" or @agence == "" or @numcomptebancaire == "")
       @msg_erreur = 'Veuillez completer les informations banquaires'
       #puts @msg = "I am here again"
       render :new
-      #pry
+      
     else
-      #pry
+      
       if @agent.save
       redirect_to @agent, notice: 'Agent was successfully created.'
       else
@@ -67,24 +67,24 @@ class AgentsController < ApplicationController
     @banque = params[:agent][:banque_id]
     @agence = params[:agent][:agence_id]
     @numcomptebancaire = params[:agent][:numcomptebancaire]
-    #pry
+    
     if @mode_paiement == ""
       @msg_erreur = 'Veuillez choisir un mode de paiement'
-      #puts @msg = "I am here"
+      
       render :edit
-      #pry
+      
     elsif (@mode_paiement == "1") and (@billeteur == "")
       @msg_erreur = 'Veuillez completer les informations du billeteur'
-      #puts @msg = "I am here now"
+     
       render :edit
-      #pry
+      
     elsif (@mode_paiement == "2")  and (@banque == "" or agence == "" or @numcomptebancaire == "")
       @msg_erreur = 'Veuillez completer les informations sur la banque'
-      #puts @msg = "I am here again"
+      
       render :edit
-      #pry
+      
     else
-      #pry
+      
       if @agent.update(agent_params)
         redirect_to @agent, notice: 'Agent was successfully updated.'
       else

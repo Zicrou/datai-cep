@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conjoints
   resources :enfants
   resources :billeteurs
   resources :agences
