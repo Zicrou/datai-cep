@@ -41,7 +41,7 @@ Saisie Agent{
         Region_id
         (Not sure!) Departement_id
         ! Etablissement_id
-        Type Etablissement_id
+        ! Type Etablissement_id
         Direction_id[id_etablissement, Nom]
         Service_id
         Emploi
