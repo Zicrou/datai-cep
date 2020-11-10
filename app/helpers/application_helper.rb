@@ -121,6 +121,14 @@ end
             url: corps_path,
             title: "Corps"
           },
+          {
+            url: indices_path,
+            title: "Indices"
+          },
+          {
+            url: grades_path,
+            title: "Grades"
+          },
         ]
       end
 

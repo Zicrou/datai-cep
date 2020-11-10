@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_110544) do
+ActiveRecord::Schema.define(version: 2020_11_10_151512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,6 +142,20 @@ ActiveRecord::Schema.define(version: 2020_11_10_110544) do
     t.index ["typedetablissement_id"], name: "index_etablissements_on_typedetablissement_id"
   end
 
+  create_table "grades", force: :cascade do |t|
+    t.string "code"
+    t.bigint "indice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["indice_id"], name: "index_grades_on_indice_id"
+  end
+
+  create_table "indices", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "mariers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -211,5 +225,6 @@ ActiveRecord::Schema.define(version: 2020_11_10_110544) do
   add_foreign_key "enfants", "agents"
   add_foreign_key "etablissements", "regions"
   add_foreign_key "etablissements", "typedetablissements"
+  add_foreign_key "grades", "indices", column: "indice_id"
   add_foreign_key "services", "directions"
 end
