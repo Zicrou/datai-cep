@@ -1,0 +1,16 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Nom:</strong>
+    <%= @typedetablissement.nom %>
+  </p>
+
+  <p>
+    <strong>Code:</strong>
+    <%= @typedetablissement.code %>
+  </p>
+
+  <%= link_to 'Edit', edit_typedetablissement_path(@typedetablissement) %> |
+  <%= link_to 'Back', typedetablissements_path %>
+</main>

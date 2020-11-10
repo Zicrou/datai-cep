@@ -37,10 +37,10 @@ Saisie Agent{
 
     }
     
-    INFORMATIONS ADMINISTRATIVES{
+    (START! )INFORMATIONS ADMINISTRATIVES{
         Region_id
-        Departement_id
-        Etablissement_id
+        (Not sure!) Departement_id
+        ! Etablissement_id
         Type Etablissement_id
         Direction_id[id_etablissement, Nom]
         Service_id

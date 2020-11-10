@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_24_021104) do
+ActiveRecord::Schema.define(version: 2020_11_10_020356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,17 @@ ActiveRecord::Schema.define(version: 2020_10_24_021104) do
     t.index ["agent_id"], name: "index_enfants_on_agent_id"
   end
 
+  create_table "etablissements", force: :cascade do |t|
+    t.string "nom"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "typedetablissement_id"
+    t.bigint "region_id"
+    t.index ["region_id"], name: "index_etablissements_on_region_id"
+    t.index ["typedetablissement_id"], name: "index_etablissements_on_typedetablissement_id"
+  end
+
   create_table "mariers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -132,6 +143,13 @@ ActiveRecord::Schema.define(version: 2020_10_24_021104) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "typedetablissements", force: :cascade do |t|
+    t.string "nom"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "agences", "banques"
   add_foreign_key "agents", "agences"
   add_foreign_key "agents", "banques"
@@ -145,4 +163,6 @@ ActiveRecord::Schema.define(version: 2020_10_24_021104) do
   add_foreign_key "conjoints", "agents"
   add_foreign_key "departements", "regions"
   add_foreign_key "enfants", "agents"
+  add_foreign_key "etablissements", "regions"
+  add_foreign_key "etablissements", "typedetablissements"
 end

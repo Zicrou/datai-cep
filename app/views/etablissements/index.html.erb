@@ -1,0 +1,39 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Etablissements</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Code</th>
+        <th>| </th>
+        <th>Type d'établissement</th>
+        <th> </th>
+        <th>Région</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @etablissements.each do |etablissement| %>
+        <tr>
+          <td><%= etablissement.nom %></td>
+          <td><%= etablissement.code %></td>
+          <th>| </th>
+          <td><%= etablissement.typedetablissement.nom %></td>
+          <th> </th>
+          <td><%= etablissement.region.name %></td>
+          <td><%= link_to 'Show', etablissement %></td>
+          <td><%= link_to 'Edit', edit_etablissement_path(etablissement) %></td>
+          <td><%= link_to 'Destroy', etablissement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Etablissement', new_etablissement_path %>
+</main>

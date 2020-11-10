@@ -89,6 +89,14 @@ end
             url: mode_paiements_path,
             title: "Mode de Paiement"
           },
+          {
+            url: typedetablissements_path,
+            title: "Type d'etablissement"
+          },
+          {
+            url: etablissements_path,
+            title: "Etablissement"
+          },
         ]
       end
 
@@ -101,16 +109,15 @@ end
         nav_links.html_safe
       end
 
-      def active? path
-        "active" if current_page? path
-      end
 
       ###END###
 #####################################################
 
 
 
-      
+      def active? path
+        "active" if current_page? path
+      end
       
       def alerts
         alert = (flash[:alert] || flash[:error] || flash[:notice])
