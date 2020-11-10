@@ -105,6 +105,22 @@ end
             url: services_path,
             title: "Services"
           },
+          {
+            url: emplois_path,
+            title: "Emplois"
+          },
+          {
+            url: postedepaies_path,
+            title: "Postes de paie"
+          },
+          {
+            url: echellons_path,
+            title: "Echellons"
+          },
+          {
+            url: corps_path,
+            title: "Corps"
+          },
         ]
       end
 

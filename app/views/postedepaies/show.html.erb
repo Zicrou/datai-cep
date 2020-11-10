@@ -1,0 +1,16 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Code:</strong>
+    <%= @postedepaie.code %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @postedepaie.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_postedepaie_path(@postedepaie) %> |
+  <%= link_to 'Back', postedepaies_path %>
+</main>

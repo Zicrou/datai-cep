@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_093508) do
+ActiveRecord::Schema.define(version: 2020_11_10_104626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,13 @@ ActiveRecord::Schema.define(version: 2020_11_10_093508) do
     t.index ["agent_id"], name: "index_conjoints_on_agent_id"
   end
 
+  create_table "corps", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "departements", force: :cascade do |t|
     t.string "name"
     t.bigint "region_id"
@@ -98,6 +105,18 @@ ActiveRecord::Schema.define(version: 2020_11_10_093508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["etablissement_id"], name: "index_directions_on_etablissement_id"
+  end
+
+  create_table "echellons", force: :cascade do |t|
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "emplois", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "enfants", force: :cascade do |t|
@@ -128,6 +147,13 @@ ActiveRecord::Schema.define(version: 2020_11_10_093508) do
   end
 
   create_table "mode_paiements", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postedepaies", force: :cascade do |t|
+    t.string "code"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

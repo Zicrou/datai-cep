@@ -44,10 +44,10 @@ Saisie Agent{
         ! Type Etablissement_id
         ! Direction_id[id_etablissement, Nom]
         ! Service_id
-        Emploi
-        Poste de paie[code, name]
-        Echellon [code]
-        Coprs [corps, name]
+        +!- Emploi
+        +!- Poste de paie[code, name]
+        ! Echellon [code]
+        ! Corps [code, name]
         Grade [t.bigint indice, t.bigint code]
 
     }

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :postedepaies
   resources :typedetablissements
   resources :conjoints
   resources :enfants
