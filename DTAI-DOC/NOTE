@@ -1,14 +1,14 @@
 Referenciels{
-    Table.banque[code, nom_banque]
-    Table.agence[id_banque, code_agence, nom]
-    Table.billeteur[code, nom_billeteur, Matricule]
+   (DONE!) Table.banque[code, nom_banque]
+   (DONE!) Table.agence[id_banque, code_agence, nom]
+   (DONE!) Table.billeteur[code, nom_billeteur, Matricule]
    (DONE!) Table.region
    (DONE!) Table.departement
    (DONE!) Table.marier[name: Oui|Nom]
    (DONE!) Table.sexe[name: M|F]
    (DONE!) Table.titre[name: Mr|Mme|Mlle]
-    Table.enfant
-    Table.conjoint
+   (DONE!) Table.enfant
+   (DONE!) Table.conjoint
 }
 Saisie Agent{
 
@@ -28,7 +28,7 @@ Saisie Agent{
        (DONE!) t.bigint "sexe_id"
        (DONE!) t.string "Adresse [Region Departement]"
         
-        Mode de paiement[Banque, Billeteur]
+       (DONE!) Mode de paiement[Banque, Billeteur]
         {
             t.string "Num Compte bancaire [Banque, Agence]"  24 caracteres
             ou
@@ -38,12 +38,12 @@ Saisie Agent{
     }
     
     (START! )INFORMATIONS ADMINISTRATIVES{
-        Region_id
-        (Not sure!) Departement_id
+       (DONE!) Region_id
+       (!)(Not sure!) Departement_id
         ! Etablissement_id
         ! Type Etablissement_id
-        Direction_id[id_etablissement, Nom]
-        Service_id
+        ! Direction_id[id_etablissement, Nom]
+        ! Service_id
         Emploi
         Poste de paie[code, name]
         Echellon [code]
@@ -52,8 +52,8 @@ Saisie Agent{
 
     }
    (Start! RUNNING!!! DONE!!!!) INFORMATIONS GRAPPE FAMILLIALE{
-        Table.enfant[Id_Matricule_agent, nom_enfant, prenom_enfant, date de naissance]
-        Table.conjoint[Id_Matricule_agent, photo_certficat_mariage, nom_conjoint, prenom_conjoint]
+        (DONE!) Table.enfant[Id_Matricule_agent, nom_enfant, prenom_enfant, date de naissance]
+        (DONE!) Table.conjoint[Id_Matricule_agent, photo_certficat_mariage, nom_conjoint, prenom_conjoint]
     }
 }
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_020356) do
+ActiveRecord::Schema.define(version: 2020_11_10_093508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,14 @@ ActiveRecord::Schema.define(version: 2020_11_10_020356) do
     t.index ["region_id"], name: "index_departements_on_region_id"
   end
 
+  create_table "directions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "etablissement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["etablissement_id"], name: "index_directions_on_etablissement_id"
+  end
+
   create_table "enfants", force: :cascade do |t|
     t.string "nom"
     t.string "prenom"
@@ -131,6 +139,14 @@ ActiveRecord::Schema.define(version: 2020_11_10_020356) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.bigint "direction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["direction_id"], name: "index_services_on_direction_id"
+  end
+
   create_table "sexes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -162,7 +178,9 @@ ActiveRecord::Schema.define(version: 2020_11_10_020356) do
   add_foreign_key "agents", "titres"
   add_foreign_key "conjoints", "agents"
   add_foreign_key "departements", "regions"
+  add_foreign_key "directions", "etablissements"
   add_foreign_key "enfants", "agents"
   add_foreign_key "etablissements", "regions"
   add_foreign_key "etablissements", "typedetablissements"
+  add_foreign_key "services", "directions"
 end

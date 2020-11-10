@@ -55,11 +55,11 @@ end
           },
           {
             url: regions_path,
-            title: "Region"
+            title: "Regions"
           },
           {
             url: departements_path,
-            title: "Departement"
+            title: "Departements"
           },
           {
             url: mariers_path,
@@ -75,27 +75,35 @@ end
           },
           {
             url: banques_path,
-            title: "Banque"
+            title: "Banques"
           },
           {
             url: agences_path,
-            title: "Agence"
+            title: "Agences"
           },
           {
             url: billeteurs_path,
-            title: "Billeteur"
+            title: "Billeteurs"
           },
           {
             url: mode_paiements_path,
-            title: "Mode de Paiement"
+            title: "Modes de Paiement"
           },
           {
             url: typedetablissements_path,
-            title: "Type d'etablissement"
+            title: "Types d'etablissement"
           },
           {
             url: etablissements_path,
-            title: "Etablissement"
+            title: "Etablissements"
+          },
+          {
+            url: directions_path,
+            title: "Directions"
+          },
+          {
+            url: services_path,
+            title: "Services"
           },
         ]
       end
