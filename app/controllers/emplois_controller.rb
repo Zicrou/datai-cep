@@ -54,6 +54,6 @@ class EmploisController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def emploi_params
-      params.require(:emploi).permit(:name)
+      params.require(:emploi).permit(:name, :service_id)
     end
 end

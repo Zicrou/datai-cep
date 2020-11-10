@@ -1,5 +1,6 @@
 class Emploi < ApplicationRecord
-
-    validates_presence_of :name
+    belongs_to :service
+    
+    validates_presence_of :name, :service_id
 
 end

@@ -6,6 +6,11 @@
     <%= @emploi.name %>
   </p>
 
+  <p>
+    <strong>Name:</strong>
+    <%= @emploi.service.name %>
+  </p>
+
   <%= link_to 'Edit', edit_emploi_path(@emploi) %> |
   <%= link_to 'Back', emplois_path %>
 </main>
