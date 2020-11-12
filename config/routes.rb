@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :administratives
   resources :indices
   resources :postedepaies
   resources :typedetablissements

@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_151512) do
+ActiveRecord::Schema.define(version: 2020_11_12_075510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "administratives", force: :cascade do |t|
+    t.bigint "agent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "region_id"
+    t.bigint "typedetablissement_id"
+    t.bigint "etablissement_id"
+    t.bigint "direction_id"
+    t.bigint "service_id"
+    t.bigint "emploi_id"
+    t.bigint "postedepaie_id"
+    t.bigint "echellon_id"
+    t.bigint "corp_id"
+    t.bigint "grade_id"
+    t.index ["agent_id"], name: "index_administratives_on_agent_id"
+    t.index ["corp_id"], name: "index_administratives_on_corp_id"
+    t.index ["direction_id"], name: "index_administratives_on_direction_id"
+    t.index ["echellon_id"], name: "index_administratives_on_echellon_id"
+    t.index ["emploi_id"], name: "index_administratives_on_emploi_id"
+    t.index ["etablissement_id"], name: "index_administratives_on_etablissement_id"
+    t.index ["grade_id"], name: "index_administratives_on_grade_id"
+    t.index ["postedepaie_id"], name: "index_administratives_on_postedepaie_id"
+    t.index ["region_id"], name: "index_administratives_on_region_id"
+    t.index ["service_id"], name: "index_administratives_on_service_id"
+    t.index ["typedetablissement_id"], name: "index_administratives_on_typedetablissement_id"
+  end
 
   create_table "agences", force: :cascade do |t|
     t.string "name"
@@ -208,6 +235,17 @@ ActiveRecord::Schema.define(version: 2020_11_10_151512) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "administratives", "agents"
+  add_foreign_key "administratives", "corps"
+  add_foreign_key "administratives", "directions"
+  add_foreign_key "administratives", "echellons"
+  add_foreign_key "administratives", "emplois"
+  add_foreign_key "administratives", "etablissements"
+  add_foreign_key "administratives", "grades"
+  add_foreign_key "administratives", "postedepaies"
+  add_foreign_key "administratives", "regions"
+  add_foreign_key "administratives", "services"
+  add_foreign_key "administratives", "typedetablissements"
   add_foreign_key "agences", "banques"
   add_foreign_key "agents", "agences"
   add_foreign_key "agents", "banques"
