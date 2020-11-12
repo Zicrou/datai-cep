@@ -1,3 +1,5 @@
 class Typeservice < ApplicationRecord
-  belongs_to :direction
+    #has_many :services
+
+    validates_presence_of :name
 end

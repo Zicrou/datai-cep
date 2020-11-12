@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Agent:</strong>
-  <%= @administrative.agent %>
-</p>
+  <p>
+    <strong>Agent:</strong>
+    <%= @administrative.agent %>
+  </p>
 
-<%= link_to 'Edit', edit_administrative_path(@administrative) %> |
-<%= link_to 'Back', administratives_path %>
+  <%= link_to 'Edit', edit_administrative_path(@administrative) %> |
+  <%= link_to 'Back', administratives_path %>
+</main>
