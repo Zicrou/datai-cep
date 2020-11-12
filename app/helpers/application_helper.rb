@@ -55,11 +55,11 @@ end
           },
           {
             url: regions_path,
-            title: "Region"
+            title: "Regions"
           },
           {
             url: departements_path,
-            title: "Departement"
+            title: "Departements"
           },
           {
             url: mariers_path,
@@ -75,19 +75,59 @@ end
           },
           {
             url: banques_path,
-            title: "Banque"
+            title: "Banques"
           },
           {
             url: agences_path,
-            title: "Agence"
+            title: "Agences"
           },
           {
             url: billeteurs_path,
-            title: "Billeteur"
+            title: "Billeteurs"
           },
           {
             url: mode_paiements_path,
-            title: "Mode de Paiement"
+            title: "Modes de Paiement"
+          },
+          {
+            url: typedetablissements_path,
+            title: "Types d'etablissement"
+          },
+          {
+            url: etablissements_path,
+            title: "Etablissements"
+          },
+          {
+            url: directions_path,
+            title: "Directions"
+          },
+          {
+            url: services_path,
+            title: "Services"
+          },
+          {
+            url: emplois_path,
+            title: "Emplois"
+          },
+          {
+            url: postedepaies_path,
+            title: "Postes de paie"
+          },
+          {
+            url: echellons_path,
+            title: "Echellons"
+          },
+          {
+            url: corps_path,
+            title: "Corps"
+          },
+          {
+            url: indices_path,
+            title: "Indices"
+          },
+          {
+            url: grades_path,
+            title: "Grades"
           },
         ]
       end
@@ -101,16 +141,15 @@ end
         nav_links.html_safe
       end
 
-      def active? path
-        "active" if current_page? path
-      end
 
       ###END###
 #####################################################
 
 
 
-      
+      def active? path
+        "active" if current_page? path
+      end
       
       def alerts
         alert = (flash[:alert] || flash[:error] || flash[:notice])

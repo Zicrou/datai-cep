@@ -1,0 +1,27 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Nom:</strong>
+    <%= @conjoint.nom %>
+  </p>
+
+  <p>
+    <strong>Prenom:</strong>
+    <%= @conjoint.prenom %>
+  </p>
+
+  <p>
+    <strong>Photo certificat mariage:</strong>
+    <%= @conjoint.photo_certificat_mariage %>
+  </p>
+
+  <p>
+    <strong>Agent:</strong>
+    <%= @conjoint.agen %>
+  </p>
+
+  <%= link_to 'Edit', edit_conjoint_path(@conjoint) %> |
+  <%= link_to 'Back', conjoints_path %>
+
+</main>

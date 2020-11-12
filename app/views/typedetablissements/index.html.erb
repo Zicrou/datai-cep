@@ -1,0 +1,31 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Typedetablissements</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Code</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @typedetablissements.each do |typedetablissement| %>
+        <tr>
+          <td><%= typedetablissement.nom %></td>
+          <td><%= typedetablissement.code %></td>
+          <td><%= link_to 'Show', typedetablissement %></td>
+          <td><%= link_to 'Edit', edit_typedetablissement_path(typedetablissement) %></td>
+          <td><%= link_to 'Destroy', typedetablissement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Typedetablissement', new_typedetablissement_path %>
+</main>

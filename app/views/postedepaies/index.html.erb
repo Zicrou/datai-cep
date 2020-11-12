@@ -1,0 +1,31 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Postedepaies</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @postedepaies.each do |postedepaie| %>
+        <tr>
+          <td><%= postedepaie.code %></td>
+          <td><%= postedepaie.name %></td>
+          <td><%= link_to 'Show', postedepaie %></td>
+          <td><%= link_to 'Edit', edit_postedepaie_path(postedepaie) %></td>
+          <td><%= link_to 'Destroy', postedepaie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Postedepaie', new_postedepaie_path %>
+</main>

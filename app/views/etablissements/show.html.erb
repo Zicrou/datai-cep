@@ -1,0 +1,26 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Nom:</strong>
+    <%= @etablissement.nom %>
+  </p>
+
+  <p>
+    <strong>Code:</strong>
+    <%= @etablissement.code %>
+  </p>
+
+  <p>
+    <strong>Type d'établissement:</strong>
+    <%= @etablissement.typedetablissement.nom %>
+  </p>
+
+  <p>
+    <strong>Région:</strong>
+    <%= @etablissement.region.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_etablissement_path(@etablissement) %> |
+  <%= link_to 'Back', etablissements_path %>
+</main>

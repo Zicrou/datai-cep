@@ -1,0 +1,29 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Typeservices</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @typeservices.each do |typeservice| %>
+        <tr>
+          <td><%= typeservice.name %></td>
+          <td><%= link_to 'Show', typeservice %></td>
+          <td><%= link_to 'Edit', edit_typeservice_path(typeservice) %></td>
+          <td><%= link_to 'Destroy', typeservice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Typeservice', new_typeservice_path %>
+</main>

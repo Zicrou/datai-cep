@@ -1,0 +1,16 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Code:</strong>
+    <%= @grade.code %>
+  </p>
+
+  <p>
+    <strong>Indice:</strong>
+    <%= @grade.indice.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_grade_path(@grade) %> |
+  <%= link_to 'Back', grades_path %>
+</main>

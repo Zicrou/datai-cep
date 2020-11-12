@@ -1,0 +1,16 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @service.name %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @service.direction.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_service_path(@service) %> |
+  <%= link_to 'Back', services_path %>
+</main>

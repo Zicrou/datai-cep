@@ -1,0 +1,36 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Conjoints</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Photo certificat mariage</th>
+        <th>Agent</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @conjoints.each do |conjoint| %>
+        <tr>
+          <td><%= conjoint.nom %></td>
+          <td><%= conjoint.prenom %></td>
+          <td><%= conjoint.photo_certificat_mariage %></td>
+          <td><%= conjoint.agent %></td>
+          <td><%= link_to 'Show', conjoint %></td>
+          <td><%= link_to 'Edit', edit_conjoint_path(conjoint) %></td>
+          <td><%= link_to 'Destroy', conjoint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Conjoint', new_conjoint_path %>
+
+</main>
