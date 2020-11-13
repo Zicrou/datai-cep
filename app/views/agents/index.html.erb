@@ -43,6 +43,7 @@
           <td><%= link_to 'Show', agent, class:"btn btn-primary" %></td>
           <td><%= link_to 'Enfant', enfants_path(id_agent: agent.id), class:"btn btn-primary" %></td>
           <td><%= link_to 'Conjoint', conjoints_path(id_agent: agent.id), class:"btn btn-primary" %></td>
+          <td><%= link_to 'Administrative', administratives_path(id_agent: agent.id), class:"btn btn-primary" %></td>
           <td><%#= link_to 'Edit', edit_agent_path(agent), class:"btn btn-primary" %></td>
           <td><%#= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %></td>
         </tr>
