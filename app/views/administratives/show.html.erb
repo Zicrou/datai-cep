@@ -1,9 +1,46 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
   <p id="notice"><%= notice %></p>
-
+  <h1>Informations Administrative de l'agent:<%= @administrative.agent.matricule %></h1>
+ 
   <p>
-    <strong>Agent:</strong>
-    <%= @administrative.agent %>
+    <strong>Region:</strong>
+    <%= @administrative.region.name %>
+  </p>
+  <p>
+    <strong>Type d'etablissement:</strong>
+    <%= @administrative.typedetablissement.nom %>
+  </p>
+  <p>
+    <strong>Etablissement:</strong>
+    <%= @administrative.etablissement.nom %>
+  </p>
+  <p>
+    <strong>Direction:</strong>
+    <%= @administrative.direction.name %>
+  </p>
+  <p>
+    <strong>Service:</strong>
+    <%= @administrative.service.name %>
+  </p>
+  <p>
+    <strong>Emploi:</strong>
+    <%= @administrative.emploi.name %>
+  </p>
+  <p>
+    <strong>Poste de paie:</strong>
+    <%= @administrative.postedepaie.name %>
+  </p>
+  <p>
+    <strong>Echellon</strong>
+    <%= @administrative.echellon.code %>
+  </p>
+  <p>
+    <strong>Corps:</strong>
+    <%= @administrative.corp.name %>
+  </p>
+  <p>
+    <strong>Grade:</strong>
+    <%= @administrative.grade.code %>
   </p>
 
   <%= link_to 'Edit', edit_administrative_path(@administrative) %> |
