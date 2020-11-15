@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_142757) do
+ActiveRecord::Schema.define(version: 2020_11_14_021812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
     t.bigint "echellon_id"
     t.bigint "corp_id"
     t.bigint "grade_id"
+    t.bigint "indice_id"
     t.index ["agent_id"], name: "index_administratives_on_agent_id"
     t.index ["corp_id"], name: "index_administratives_on_corp_id"
     t.index ["direction_id"], name: "index_administratives_on_direction_id"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
     t.index ["emploi_id"], name: "index_administratives_on_emploi_id"
     t.index ["etablissement_id"], name: "index_administratives_on_etablissement_id"
     t.index ["grade_id"], name: "index_administratives_on_grade_id"
+    t.index ["indice_id"], name: "index_administratives_on_indice_id"
     t.index ["postedepaie_id"], name: "index_administratives_on_postedepaie_id"
     t.index ["region_id"], name: "index_administratives_on_region_id"
     t.index ["service_id"], name: "index_administratives_on_service_id"
@@ -248,6 +250,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
   add_foreign_key "administratives", "emplois"
   add_foreign_key "administratives", "etablissements"
   add_foreign_key "administratives", "grades"
+  add_foreign_key "administratives", "indices", column: "indice_id"
   add_foreign_key "administratives", "postedepaies"
   add_foreign_key "administratives", "regions"
   add_foreign_key "administratives", "services"

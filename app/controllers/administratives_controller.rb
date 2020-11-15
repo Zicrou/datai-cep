@@ -1,10 +1,13 @@
 class AdministrativesController < ApplicationController
   before_action :set_administrative, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  access all: [:index, :show, :new, :edit, :create, :update, :destroy, :filtered], user: :all
 
   # GET /administratives
   def index
-    @administratives = Administrative.all
+    @id_agent = params["id_agent"]
+    session[:id_agent] = @id_agent if !@id_agent.nil?
+
+    @administratives = Administrative.where(agent_id: session[:id_agent])
   end
 
   # GET /administratives/1
@@ -14,16 +17,30 @@ class AdministrativesController < ApplicationController
   # GET /administratives/new
   def new
     @administrative = Administrative.new
+    @etablissements = Etablissement.all
+    @directions = Direction.all
+    @services = Service.all
+    @emplois = Emploi.all
+    @indices = Indice.all
+    @grades = Grade.all
+
   end
 
   # GET /administratives/1/edit
   def edit
+    @etablissements = Etablissement.all
+    @directions = Direction.all
+    @services = Service.all
+    @emplois = Emploi.all
+    @indices = Indice.all
+    @grades = Grade.all
   end
 
   # POST /administratives
   def create
     @administrative = Administrative.new(administrative_params)
-
+    @administrative.agent_id = session[:id_agent]
+    
     if @administrative.save
       redirect_to @administrative, notice: 'Administrative was successfully created.'
     else
@@ -46,6 +63,27 @@ class AdministrativesController < ApplicationController
     redirect_to administratives_url, notice: 'Administrative was successfully destroyed.'
   end
 
+  #Customs methods
+  def filtered
+    @region = params[:regionId]
+    #@domaine = params[:domaineId]
+    if !@region.nil?
+      @etablissements = Etablissement.where(region_id: @region)
+      #puts "region= "+ @region
+      respond_to do |format|
+        format.json { render json: @etablissements }
+      end
+
+    #elsif !@domaine.nil?
+    #  @metiers = Metier.where(domaine_id:@domaine)
+    #  puts "domaine= "+ @domaine
+    #  respond_to do |format|
+    #    format.json { render json: @metiers }
+    #  end
+    end
+    #render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_administrative
@@ -54,6 +92,6 @@ class AdministrativesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def administrative_params
-      params.require(:administrative).permit(:agent_id, :region_id, :typedetablissement_id, :etablissement_id, :direction_id, :service_id, :emploi_id, :postedepaie_id, :echellon_id, :corp_id, :grade_id)
+      params.require(:administrative).permit(:agent_id, :region_id, :typedetablissement_id, :etablissement_id, :direction_id, :service_id, :emploi_id, :postedepaie_id, :echellon_id, :corp_id, :indice_id, :grade_id)
     end
 end

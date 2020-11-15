@@ -37,10 +37,8 @@
           <td><%= agent.date_recrutement %></td>
           <th>||</th>
           <td><%= agent.telephone %></td>
-          <td class="btn btn-primary" style="margin: 0.6em;" data-toggle="modal" data-target="#<%= dom_id(agent) %>">
-                Voir Information
-          </td>
-          <td><%= link_to 'Show', agent, class:"btn btn-primary" %></td>
+          
+          <td><%= link_to "...Voir plus", agent, class:"btn btn-primary" %></td>
           <td><%= link_to 'Enfant', enfants_path(id_agent: agent.id), class:"btn btn-primary" %></td>
           <td><%= link_to 'Conjoint', conjoints_path(id_agent: agent.id), class:"btn btn-primary" %></td>
           <td><%= link_to 'Administrative', administratives_path(id_agent: agent.id), class:"btn btn-primary" %></td>
@@ -48,61 +46,6 @@
           <td><%#= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %></td>
         </tr>
 
-        <!-- Modal -->
-            <div class="modal fade" id="<%= dom_id(agent) %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header" style="background-color:#292b2c;color:white;">
-                    <h5 class="modal-title" id="exampleModalLongTitle"><%= agent.nom + agent.prenom%></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>
-                      <strong>Email: </strong><%= agent.email %>
-                    </p>
-
-                    <p>
-                      <strong>Date de naissance: </strong><%= agent.date_naissance %>
-                    </p>
-                    
-                    <p>
-                      <strong>Lieu de naissance: </strong><%= agent.lieu_naissance %>
-                    </p>
-
-                    <% if agent.mode_paiement_id == 1 %>
-                      <p>
-                        <strong>Billeteur:</strong>
-                        <%= agent.billeteur.nom_billeteur + " (" + agent.billeteur.code + ")" %>
-                      </p>
-
-                    <% else %>  
-                      <p>
-                        <strong>Banque:</strong>
-                        <%= agent.banque.name %>
-                      </p>
-
-                      <p>
-                        <strong>Agence:</strong>
-                        <%= agent.agence.name %>
-                      </p>
-
-                      <p>
-                        <strong>Numero de compte bancaire:</strong>
-                        <%= agent.numcomptebancaire %>
-                      </p>
-
-                    <% end %>
-                                      
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!--button type="button" class="btn btn-primary">Save changes</button -->
-                  </div>
-                </div>
-              </div>
-            </div>
       <% end %>
     </tbody>
   </table>

@@ -9,7 +9,8 @@ class Administrative < ApplicationRecord
   belongs_to :postedepaie
   belongs_to :echellon
   belongs_to :corp
+  belongs_to :indice
   belongs_to :grade
   
-  validates_presence_of :agent_id, :region_id, :typedetablissement_id, :etablissement_id, :direction_id, :service_id, :emploi_id, :postedepaie_id, :echellon_id, :corp_id, :grade_id
+  validates_presence_of :agent_id, :region_id, :typedetablissement_id, :etablissement_id, :direction_id, :service_id, :emploi_id, :postedepaie_id, :echellon_id, :corp_id, :indice_id, :grade_id
 end

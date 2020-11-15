@@ -11,11 +11,6 @@
         </ul>
       </div>
     <% end %>
-
-    <div class="form-group">
-      <%= form.label :agent_id %>
-      <%= form.text_field :agent_id %>
-    </div>
     
     <div class="form-group">
       <%= form.label :region_id %>
@@ -23,7 +18,7 @@
           {
             include_blank: true
           },
-            #onchange: 'getIDDomaine()',
+            onchange: 'getIDRegion()',
             class: 'form-control col-md-3'
         ) 
       %>
@@ -41,7 +36,7 @@
       %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group etablissements" data-etablissements="<%= @etablissements.to_json %>">
       <%= form.label :etablissement_id %>
       <%= form.collection_select(:etablissement_id, Etablissement.order(:nom), :id, :nom,
           {
@@ -53,7 +48,7 @@
       %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group directions" data-directions="<%= @directions.to_json%>">
       <%= form.label :direction_id %>
       <%= form.collection_select(:direction_id, Direction.order(:name), :id, :name,
           {
@@ -65,7 +60,7 @@
       %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group services" data-services="<%= @services.to_json%>">
       <%= form.label :service_id %>
       <%= form.collection_select(:service_id, Service.order(:name), :id, :name,
           {
@@ -77,7 +72,7 @@
       %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group emplois" data-emplois="<%= @emplois.to_json%>">
       <%= form.label :emploi_id %>
       <%= form.collection_select(:emploi_id, Emploi.order(:name), :id, :name,
           {
@@ -125,7 +120,19 @@
       %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group indices" data-indices="<%= @indices.to_json%>">
+      <%= form.label :indice_id %>
+      <%= form.collection_select(:indice_id, Indice.order(:name), :id, :name,
+          {
+              include_blank: true
+          },
+              #onchange: 'getIDDomaine()',
+              class: 'form-control col-md-3'
+          ) 
+      %>
+    </div>
+    
+    <div class="form-group grades" data-grades="<%= @grades.to_json%>">
       <%= form.label :grade_id %>
       <%= form.collection_select(:grade_id, Grade.order(:code), :id, :code,
           {

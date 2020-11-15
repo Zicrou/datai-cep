@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :administratives
+  resources :administratives do
+    collection do
+      get :filtered
+    end
+  end
   resources :indices
   resources :postedepaies
   resources :typedetablissements

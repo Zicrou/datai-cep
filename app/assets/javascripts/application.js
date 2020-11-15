@@ -13,6 +13,8 @@
 //= require jquery3
 //= require popper
 //= require rails-ujs
+//= require agent
+//= require administrative
 //= require activestorage
 //= require gestoptions
 //= require turbolinks
