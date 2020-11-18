@@ -62,11 +62,15 @@ class AdministrativesController < ApplicationController
     @administrative.destroy
     redirect_to administratives_url, notice: 'Administrative was successfully destroyed.'
   end
+  
 
   #Customs methods
   def filtered
     @region = params[:regionId]
     @etablissement = params[:etablissementId]
+    @direction = params[:directionId]
+    @serviceId = params[:serviceId]
+    @indiceId = params[:indiceId]
     #@domaine = params[:domaineId]
     if !@region.nil?
       @etablissements = Etablissement.where(region_id: @region)
@@ -81,7 +85,29 @@ class AdministrativesController < ApplicationController
       respond_to do |format|
         format.json { render json: @directions }
       end
+
+    elsif !@direction.nil?
+      @services = Service.where(direction_id: @direction)
+      #puts "domaine= "+ @domaine
+      respond_to do |format|
+        format.json { render json: @services }
+      end
+    
+    elsif !@serviceId.nil?
+      @emplois = Emploi.where(service_id: @serviceId)
+      #puts "domaine= "+ @domaine
+      respond_to do |format|
+        format.json { render json: @emplois }
+      end
+    elsif !@indiceId.nil?
+      @grades = Grade.where(indice_id: @indiceId)
+      #puts "domaine= "+ @domaine
+      respond_to do |format|
+        format.json { render json: @grades }
+      end
+      
     end
+    
     #render :index
   end
 
