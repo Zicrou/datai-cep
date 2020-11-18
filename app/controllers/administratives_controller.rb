@@ -66,6 +66,7 @@ class AdministrativesController < ApplicationController
   #Customs methods
   def filtered
     @region = params[:regionId]
+    @etablissement = params[:etablissementId]
     #@domaine = params[:domaineId]
     if !@region.nil?
       @etablissements = Etablissement.where(region_id: @region)
@@ -74,12 +75,12 @@ class AdministrativesController < ApplicationController
         format.json { render json: @etablissements }
       end
 
-    #elsif !@domaine.nil?
-    #  @metiers = Metier.where(domaine_id:@domaine)
-    #  puts "domaine= "+ @domaine
-    #  respond_to do |format|
-    #    format.json { render json: @metiers }
-    #  end
+    elsif !@etablissement.nil?
+      @directions = Direction.where(etablissement_id: @etablissement)
+      #puts "domaine= "+ @domaine
+      respond_to do |format|
+        format.json { render json: @directions }
+      end
     end
     #render :index
   end

@@ -26,3 +26,32 @@ function getIDRegion() {
         });
     }
 }
+
+function getIDEtablissement() {
+    var etablissementid = document.getElementById("administrative_etablissement_id").value
+    var etablissementID = etablissementid
+    if (etablissementID == "") {
+        $("#administrative_direction_id").children().remove();
+        var directions = $('.directions').data('directions')
+        var listedirection = [];
+        $.each(directions,function(key, value) {
+            listedirection += '<option value="' + value.id+ '">' + value.nom + '</option>';
+        });
+        $("#administrative_direction_id").append(listedirection).prepend("<option value='' selected='selected'></option>");
+        
+    }else{
+        $.ajax({
+            url: "/administratives/filtered",
+            type: "GET",
+            data: {etablissementId: etablissementID},
+            success: function(data) {
+                $("#administrative_direction_id").children().remove();
+                var listedirection = [];
+                $.each(data,function(key, value) {
+                    listedirection += '<option value="' + value.id+ '">' + value.name + '</option>';
+                });
+                $("#administrative_direction_id").append(listedirection).prepend("<option value='' selected='selected'></option>");
+            }
+        });
+    }
+}
