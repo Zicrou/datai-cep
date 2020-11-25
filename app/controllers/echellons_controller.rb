@@ -54,6 +54,6 @@ class EchellonsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def echellon_params
-      params.require(:echellon).permit(:code)
+      params.require(:echellon).permit(:code, :clase_id)
     end
 end

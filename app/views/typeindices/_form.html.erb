@@ -1,0 +1,24 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <%= form_with(model: typeindex, local: true) do |form| %>
+    <% if typeindex.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(typeindex.errors.count, "error") %> prohibited this typeindex from being saved:</h2>
+
+        <ul>
+        <% typeindex.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control col-md-3"%>
+    </div>
+
+    <div class="actions">
+      <%= form.submit value:"Valider type d'indice", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</main>

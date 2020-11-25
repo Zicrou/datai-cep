@@ -58,6 +58,6 @@ class ConjointsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def conjoint_params
-      params.require(:conjoint).permit(:nom, :prenom, :photo_certificat_mariage, :agent_id)
+      params.require(:conjoint).permit(:nom, :prenom, :photo_certificat_mariage, :numero_de_reference, :date_mariage, :agent_id)
     end
 end

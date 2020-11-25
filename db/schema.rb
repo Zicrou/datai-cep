@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_021812) do
+ActiveRecord::Schema.define(version: 2020_11_25_153048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 2020_11_14_021812) do
     t.bigint "marier_id"
     t.bigint "titre_id"
     t.bigint "sexe_id"
-    t.bigint "departement_id"
     t.bigint "region_id"
     t.bigint "mode_paiement_id"
     t.bigint "banque_id"
@@ -80,7 +79,6 @@ ActiveRecord::Schema.define(version: 2020_11_14_021812) do
     t.index ["agence_id"], name: "index_agents_on_agence_id"
     t.index ["banque_id"], name: "index_agents_on_banque_id"
     t.index ["billeteur_id"], name: "index_agents_on_billeteur_id"
-    t.index ["departement_id"], name: "index_agents_on_departement_id"
     t.index ["marier_id"], name: "index_agents_on_marier_id"
     t.index ["mode_paiement_id"], name: "index_agents_on_mode_paiement_id"
     t.index ["region_id"], name: "index_agents_on_region_id"
@@ -103,6 +101,14 @@ ActiveRecord::Schema.define(version: 2020_11_14_021812) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "clases", force: :cascade do |t|
+    t.string "name"
+    t.bigint "echellon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["echellon_id"], name: "index_clases_on_echellon_id"
+  end
+
   create_table "conjoints", force: :cascade do |t|
     t.string "nom"
     t.string "prenom"
@@ -110,6 +116,8 @@ ActiveRecord::Schema.define(version: 2020_11_14_021812) do
     t.bigint "agent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "numero_de_reference"
+    t.date "date_mariage"
     t.index ["agent_id"], name: "index_conjoints_on_agent_id"
   end
 
@@ -140,6 +148,8 @@ ActiveRecord::Schema.define(version: 2020_11_14_021812) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "clase_id"
+    t.index ["clase_id"], name: "index_echellons_on_clase_id"
   end
 
   create_table "emplois", force: :cascade do |t|
@@ -173,16 +183,22 @@ ActiveRecord::Schema.define(version: 2020_11_14_021812) do
 
   create_table "grades", force: :cascade do |t|
     t.string "code"
-    t.bigint "indice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["indice_id"], name: "index_grades_on_indice_id"
+    t.bigint "corp_id"
+    t.bigint "clase_id"
+    t.index ["clase_id"], name: "index_grades_on_clase_id"
+    t.index ["corp_id"], name: "index_grades_on_corp_id"
   end
 
   create_table "indices", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "typeindice_id"
+    t.bigint "echellon_id"
+    t.index ["echellon_id"], name: "index_indices_on_echellon_id"
+    t.index ["typeindice_id"], name: "index_indices_on_typeindice_id"
   end
 
   create_table "mariers", force: :cascade do |t|
@@ -237,6 +253,12 @@ ActiveRecord::Schema.define(version: 2020_11_14_021812) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "typeindices", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "typeservices", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -259,19 +281,23 @@ ActiveRecord::Schema.define(version: 2020_11_14_021812) do
   add_foreign_key "agents", "agences"
   add_foreign_key "agents", "banques"
   add_foreign_key "agents", "billeteurs"
-  add_foreign_key "agents", "departements"
   add_foreign_key "agents", "mariers"
   add_foreign_key "agents", "mode_paiements"
   add_foreign_key "agents", "regions"
   add_foreign_key "agents", "sexes", column: "sexe_id"
   add_foreign_key "agents", "titres"
+  add_foreign_key "clases", "echellons"
   add_foreign_key "conjoints", "agents"
   add_foreign_key "departements", "regions"
   add_foreign_key "directions", "etablissements"
+  add_foreign_key "echellons", "clases"
   add_foreign_key "emplois", "services"
   add_foreign_key "enfants", "agents"
   add_foreign_key "etablissements", "regions"
   add_foreign_key "etablissements", "typedetablissements"
-  add_foreign_key "grades", "indices", column: "indice_id"
+  add_foreign_key "grades", "clases"
+  add_foreign_key "grades", "corps"
+  add_foreign_key "indices", "echellons"
+  add_foreign_key "indices", "typeindices", column: "typeindice_id"
   add_foreign_key "services", "directions"
 end

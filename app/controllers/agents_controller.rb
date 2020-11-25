@@ -132,6 +132,6 @@ class AgentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def agent_params
-      params.require(:agent).permit(:matricule, :nom, :prenom, :date_naissance, :date_recrutement, :lieu_naissance, :nationalite, :email, :telephone, :adresse, :marier_id, :titre_id, :sexe_id, :region_id, :departement_id, :mode_paiement_id, :banque_id, :agence_id, :billeteur_id, :numcomptebancaire)
+      params.require(:agent).permit(:matricule, :nom, :prenom, :date_naissance, :date_recrutement, :lieu_naissance, :nationalite, :email, :telephone, :adresse, :marier_id, :titre_id, :sexe_id, :region_id, :mode_paiement_id, :banque_id, :agence_id, :billeteur_id, :numcomptebancaire)
     end
 end

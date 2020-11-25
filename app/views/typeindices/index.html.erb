@@ -1,0 +1,37 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Typeindices</h1>
+
+  <% @typeindices.each do |typeindex| %>
+    
+    <div class="card text-center">  
+      <div class="card-header">
+        <span>Type d'indice</span>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title"><%= typeindex.name%></h2>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="card-text" style=text-align:left; ></p>
+            <p class="card-text" style=text-align:left; ></p>
+          </div>
+          <div class="col-md-6">
+            <p class="card-text" style=text-align:right; ></p>
+          </div>
+        </div>
+        <!-- a href="#" class="btn btn-primary">Go somewhere</a -->
+      </div>
+      <div class="card-footer text-muted">
+        <span>DTAI-CEP</span>
+        <span style=margin:auto;><%= link_to 'Voir', typeindex %></span>
+        <span style=margin:auto;><%= link_to 'Editer', edit_typeindex_path(typeindex) %></span>
+        <span style=margin:auto;><%= link_to 'Destroy', typeindex, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </div>
+    </div> 
+    
+    <br>
+  <% end %>
+
+  <%= link_to 'Nouveau Type indice', new_typeindex_path %>
+</main>

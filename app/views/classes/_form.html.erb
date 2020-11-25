@@ -1,0 +1,29 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <%= form_with(model: classe, local: true) do |form| %>
+    <% if classe.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(classe.errors.count, "error") %> prohibited this classe from being saved:</h2>
+
+        <ul>
+        <% classe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control col-md-3" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :echellon_id %>
+      <%= form.text_field :echellon_id %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</main>

@@ -5,7 +5,7 @@
   <h2><u>Listes des agents:</u></h2>
   <br>
 
-  <table>
+  <!--table>
     <thead>
       <tr>
         <th>Matricule</th>
@@ -23,33 +23,56 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody -->
       <% @agents.each do |agent| %>
-        <tr>
-          <td><%= agent.matricule %></td>
+        <!--tr>
+          <td><%#= agent.matricule %></td>
           <th>||</th>
-          <td><%= agent.nom %></td>
+          <td><%#= agent.nom %></td>
           <th>||</th>
-          <td><%= agent.prenom %></td>
+          <td><%#= agent.prenom %></td>
           <th>||</th>
-          <td><%= agent.created_at %></td>
+          <td><%#= agent.created_at %></td>
           <td>||</td>
-          <td><%= agent.date_recrutement %></td>
+          <td><%#= agent.date_recrutement %></td>
           <th>||</th>
-          <td><%= agent.telephone %></td>
+          <td><%#= agent.telephone %></td>
           
-          <td><%= link_to "...Voir plus", agent, class:"btn btn-primary" %></td>
-          <td><%= link_to 'Enfant', enfants_path(id_agent: agent.id), class:"btn btn-primary" %></td>
-          <td><%= link_to 'Conjoint', conjoints_path(id_agent: agent.id), class:"btn btn-primary" %></td>
-          <td><%= link_to 'Administrative', administratives_path(id_agent: agent.id), class:"btn btn-primary" %></td>
+          <td><%#= link_to "...Voir plus", agent, class:"btn btn-primary" %></td>
+          <td><%#= link_to 'Enfant', enfants_path(id_agent: agent.id), class:"btn btn-primary" %></td>
+          <td><%#= link_to 'Conjoint', conjoints_path(id_agent: agent.id), class:"btn btn-primary" %></td>
+          <td><%#= link_to 'Administrative', administratives_path(id_agent: agent.id), class:"btn btn-primary" %></td>
           <td><%#= link_to 'Edit', edit_agent_path(agent), class:"btn btn-primary" %></td>
           <td><%#= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %></td>
-        </tr>
-
-      <% end %>
-    </tbody>
-  </table>
-
+        </tr -->
+    <div class="card text-center">  
+      <div class="card-header">
+        <span><%= agent.matricule + " " + agent.prenom + " " + agent.nom %></span>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title"><%=%></h2>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="card-text" style=text-align:left; >Date prise en compte: <%= agent.created_at%></p>
+            <p class="card-text" style=text-align:left; >Date de recrutement : <%= agent.date_recrutement%></p>
+          </div>
+          <div class="col-md-6">
+            <p class="card-text" style=text-align:right; >Téléphone : <%= agent.telephone %></p>
+          </div>
+        </div>
+        <!-- a href="#" class="btn btn-primary">Go somewhere</a -->
+      </div>
+      <div class="card-footer text-muted">
+        <span style=>DTAI-CEP</span>
+        <span style=margin:auto;><%= link_to "...Voir plus", agent, class:"btn btn-primary" %></span>
+        <span style=margin:auto;><%= link_to 'Enfant', enfants_path(id_agent: agent.id), class:"btn btn-primary" %></span>
+        <span style=margin:auto;><%= link_to 'Conjoint', conjoints_path(id_agent: agent.id), class:"btn btn-primary" %></span>
+        <span style=margin:auto;><%= link_to 'Administrative', administratives_path(id_agent: agent.id), class:"btn btn-primary" %></span>
+      </div>
+    </div> 
   <br>
+  <% end %>
+    <!--/tbody>
+  </table -->
 
 </main>

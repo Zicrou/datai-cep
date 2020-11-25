@@ -54,6 +54,6 @@ class IndicesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def index_params
-      params.require(:indice).permit(:name)
+      params.require(:indice).permit(:name, :typeindice_id, :echellon_id)
     end
 end

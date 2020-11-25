@@ -122,12 +122,20 @@ end
             title: "Corps"
           },
           {
+            url: typeindices_path,
+            title: "Types d'indice"
+          },
+          {
             url: indices_path,
             title: "Indices"
           },
           {
             url: grades_path,
             title: "Grades"
+          },
+          {
+            url: clases_path,
+            title: "Classes"
           },
         ]
       end

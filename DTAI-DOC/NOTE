@@ -9,6 +9,7 @@ Referenciels{
    (DONE!) Table.titre[name: Mr|Mme|Mlle]
    (DONE!) Table.enfant
    (DONE!) Table.conjoint
+   Table.type_indice[name] 
 }
 Saisie Agent{
 
@@ -47,14 +48,19 @@ Saisie Agent{
         ! Service_id
         +!- Emploi
         +!- Poste de paie[code, name]
-        ! Echellon [code]
-        ! Corps [code, name]
+        ! Echellon [code, indice_id]
+        ! Corps [code, name, echellon_id]
+        Indice(type_indice_id)
         Grade [t.bigint indice, t.bigint code]
+        NEW Grade [corps_id, classe_id{libellé}]
 
     }
    (Start! RUNNING!!! DONE!!!!) INFORMATIONS GRAPPE FAMILLIALE{
         (DONE!) Table.enfant[Id_Matricule_agent, nom_enfant, prenom_enfant, date de naissance]
-        (DONE!) Table.conjoint[Id_Matricule_agent, photo_certficat_mariage, nom_conjoint, prenom_conjoint]
+        (!) Table.conjoint[Id_Matricule_agent, photo_certficat_mariage, numero_de_reference, date_mariage, nom_conjoint, prenom_conjoint]
+
     }
 }
 
+Grade --> Echellon(indice ou salaire)
+Poste de paie c'est en fonction du Grade

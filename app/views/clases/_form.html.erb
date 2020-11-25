@@ -1,0 +1,36 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <%= form_with(model: clase, local: true) do |form| %>
+    <% if clase.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(clase.errors.count, "error") %> prohibited this clase from being saved:</h2>
+
+        <ul>
+        <% clase.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control col-md-3" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :echellon_id %>
+      <%= form.collection_select(:echellon_id, Echellon.all, :id, :code,
+          {
+            include_blank: true
+          },
+            onchange: 'getIdregion()',
+            class: 'form-control col-md-3'
+        ) 
+      %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit value:"Valider", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</main>

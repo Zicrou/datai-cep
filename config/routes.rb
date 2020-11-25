@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :clases
+  resources :typeindices
   resources :administratives do
     collection do
       get :filtered

@@ -6,6 +6,15 @@
     <%= @index.name %>
   </p>
 
+  <p>
+    <strong>Type d'indice:</strong>
+    <%= @index.typeindice.name %>
+  </p>
+
+  <p>
+    <strong>Echellon:</strong>
+    <%= @index.echellon.code %>
+  </p>
   <%= link_to 'Edit', edit_index_path(@index) %> |
   <%= link_to 'Back', indices_path %>
 </main>

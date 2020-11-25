@@ -1,5 +1,8 @@
 class Grade < ApplicationRecord
-  belongs_to :indice
+  has_many :corps
+  has_many :clases
 
-  validates_presence_of :code, :indice_id
+  #belongs_to : administrative
+
+  validates_presence_of :code, :clase_id, :corp_id
 end
