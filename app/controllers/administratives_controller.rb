@@ -119,6 +119,6 @@ class AdministrativesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def administrative_params
-      params.require(:administrative).permit(:agent_id, :region_id, :typedetablissement_id, :etablissement_id, :direction_id, :service_id, :emploi_id, :postedepaie_id, :echellon_id, :corp_id, :indice_id, :grade_id)
+      params.require(:administrative).permit(:agent_id, :region_id, :typedetablissement_id, :etablissement_id, :service_id #, :emploi_id, :direction_id, :postedepaie_id, :echellon_id, :corp_id, :indice_id, :grade_id)
     end
 end

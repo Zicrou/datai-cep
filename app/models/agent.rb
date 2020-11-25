@@ -3,7 +3,7 @@ class Agent < ApplicationRecord
     belongs_to :titre
     belongs_to :sexe
     belongs_to :region
-    belongs_to :departement
+    #belongs_to :departement
     belongs_to :mode_paiement
     belongs_to :banque, optional: :true
     belongs_to :agence, optional: :true
