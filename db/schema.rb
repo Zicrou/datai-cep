@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_164817) do
+ActiveRecord::Schema.define(version: 2020_11_12_142757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,23 +22,11 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
     t.bigint "region_id"
     t.bigint "typedetablissement_id"
     t.bigint "etablissement_id"
-    t.bigint "direction_id"
     t.bigint "service_id"
     t.bigint "emploi_id"
-    t.bigint "postedepaie_id"
-    t.bigint "echellon_id"
-    t.bigint "corp_id"
-    t.bigint "grade_id"
-    t.bigint "indice_id"
     t.index ["agent_id"], name: "index_administratives_on_agent_id"
-    t.index ["corp_id"], name: "index_administratives_on_corp_id"
-    t.index ["direction_id"], name: "index_administratives_on_direction_id"
-    t.index ["echellon_id"], name: "index_administratives_on_echellon_id"
     t.index ["emploi_id"], name: "index_administratives_on_emploi_id"
     t.index ["etablissement_id"], name: "index_administratives_on_etablissement_id"
-    t.index ["grade_id"], name: "index_administratives_on_grade_id"
-    t.index ["indice_id"], name: "index_administratives_on_indice_id"
-    t.index ["postedepaie_id"], name: "index_administratives_on_postedepaie_id"
     t.index ["region_id"], name: "index_administratives_on_region_id"
     t.index ["service_id"], name: "index_administratives_on_service_id"
     t.index ["typedetablissement_id"], name: "index_administratives_on_typedetablissement_id"
@@ -101,12 +89,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "clases", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "conjoints", force: :cascade do |t|
     t.string "nom"
     t.string "prenom"
@@ -114,8 +96,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
     t.bigint "agent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "numero_de_reference"
-    t.date "date_mariage"
     t.index ["agent_id"], name: "index_conjoints_on_agent_id"
   end
 
@@ -136,10 +116,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
 
   create_table "directions", force: :cascade do |t|
     t.string "name"
-    t.bigint "etablissement_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["etablissement_id"], name: "index_directions_on_etablissement_id"
   end
 
   create_table "echellons", force: :cascade do |t|
@@ -187,8 +165,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "typeindice_id"
-    t.index ["typeindice_id"], name: "index_indices_on_typeindice_id"
   end
 
   create_table "mariers", force: :cascade do |t|
@@ -218,10 +194,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
 
   create_table "services", force: :cascade do |t|
     t.string "name"
-    t.bigint "direction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["direction_id"], name: "index_services_on_direction_id"
   end
 
   create_table "sexes", force: :cascade do |t|
@@ -243,12 +217,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "typeindices", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "typeservices", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -256,14 +224,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
   end
 
   add_foreign_key "administratives", "agents"
-  add_foreign_key "administratives", "corps"
-  add_foreign_key "administratives", "directions"
-  add_foreign_key "administratives", "echellons"
   add_foreign_key "administratives", "emplois"
   add_foreign_key "administratives", "etablissements"
-  add_foreign_key "administratives", "grades"
-  add_foreign_key "administratives", "indices", column: "indice_id"
-  add_foreign_key "administratives", "postedepaies"
   add_foreign_key "administratives", "regions"
   add_foreign_key "administratives", "services"
   add_foreign_key "administratives", "typedetablissements"
@@ -278,11 +240,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_164817) do
   add_foreign_key "agents", "titres"
   add_foreign_key "conjoints", "agents"
   add_foreign_key "departements", "regions"
-  add_foreign_key "directions", "etablissements"
   add_foreign_key "emplois", "services"
   add_foreign_key "enfants", "agents"
   add_foreign_key "etablissements", "regions"
   add_foreign_key "etablissements", "typedetablissements"
-  add_foreign_key "indices", "typeindices", column: "typeindice_id"
-  add_foreign_key "services", "directions"
 end
