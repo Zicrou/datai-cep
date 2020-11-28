@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
-    belongs_to :direction
+    belongs_to :etablissement
     
     has_many :emplois
 
-    validates_presence_of :name, :direction_id
+    validates_presence_of :name, :etablissement_id
 end

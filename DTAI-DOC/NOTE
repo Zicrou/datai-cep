@@ -15,19 +15,19 @@ Saisie Agent{
 
    (DONE!) INFORMATIONS PERSONNELLES{
        (DONE!) t.string "matricule"
+       (DONE!) t.bigint "titre_id"
+       (DONE!) t.bigint "marier_id"
+       (DONE!) t.bigint "sexe_id"
        (DONE!) t.string "nom"
        (DONE!) t.string "prenom"
        (DONE!) t.date "date_de_naissance"
-       (DONE!) t.date "date PEC"
+    BACKEND   (DONE!) t.date "date PEC" 
        (DONE!) t.date "date_recrutement"
        (DONE!) t.string "lieu_de_naissance"
        (DONE!) t.string "nationalite"
        (DONE!) t.string "email"
        (DONE!) t.bigint "telephone"
-       (DONE!) t.bigint "marier_id"
-       (DONE!) t.bigint "titre_id"
-       (DONE!) t.bigint "sexe_id"
-       (DONE!) t.string "Adresse [Region Departement]"
+       (DONE!) t.string "Adresse [Region, Adresse]"
         
        (DONE!) Mode de paiement[Banque, Billeteur]
         {
@@ -64,3 +64,7 @@ Saisie Agent{
 
 Grade --> Echellon(indice ou salaire)
 Poste de paie c'est en fonction du Grade
+
+Formulaire Agent informations personnelles is it working? YES
+Formulaire Agent informations GRAPPE FAMILLIALE(Enfant Conjoint) is it working? YES
+Formulaire Agent informations ADMINISTRATIVES is it working? YESING...!

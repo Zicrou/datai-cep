@@ -137,6 +137,10 @@ end
             url: clases_path,
             title: "Classes"
           },
+          {
+            url: typeservices_path,
+            title: "Type de service"
+          },
         ]
       end
 

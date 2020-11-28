@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_142757) do
+ActiveRecord::Schema.define(version: 2020_11_28_102155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "region_id"
-    t.bigint "typedetablissement_id"
     t.bigint "etablissement_id"
     t.bigint "service_id"
     t.bigint "emploi_id"
@@ -29,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
     t.index ["etablissement_id"], name: "index_administratives_on_etablissement_id"
     t.index ["region_id"], name: "index_administratives_on_region_id"
     t.index ["service_id"], name: "index_administratives_on_service_id"
-    t.index ["typedetablissement_id"], name: "index_administratives_on_typedetablissement_id"
   end
 
   create_table "agences", force: :cascade do |t|
@@ -96,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
     t.bigint "agent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "numero_de_reference"
+    t.date "date_mariage"
     t.index ["agent_id"], name: "index_conjoints_on_agent_id"
   end
 
@@ -196,6 +196,8 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "etablissement_id"
+    t.index ["etablissement_id"], name: "index_services_on_etablissement_id"
   end
 
   create_table "sexes", force: :cascade do |t|
@@ -228,7 +230,6 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
   add_foreign_key "administratives", "etablissements"
   add_foreign_key "administratives", "regions"
   add_foreign_key "administratives", "services"
-  add_foreign_key "administratives", "typedetablissements"
   add_foreign_key "agences", "banques"
   add_foreign_key "agents", "agences"
   add_foreign_key "agents", "banques"
@@ -244,4 +245,5 @@ ActiveRecord::Schema.define(version: 2020_11_12_142757) do
   add_foreign_key "enfants", "agents"
   add_foreign_key "etablissements", "regions"
   add_foreign_key "etablissements", "typedetablissements"
+  add_foreign_key "services", "etablissements"
 end
